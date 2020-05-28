@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/Negro"
+    tools:context=".HomeActivity.Fragments.Fragment_ProfileArtist">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/back_FragmentArtistProfile"
+        android:src="@drawable/ic_arrow_back_black_24dp"
+        android:layout_margin="@dimen/margin15"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView_NameArtistProfile"
+        android:text="Nirvana"
+        android:textSize="@dimen/textSize50"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@+id/back_FragmentArtistProfile"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        />
+
+    <androidx.cardview.widget.CardView
+        android:orientation="horizontal"
+        android:id="@+id/cardView_ImageArtist"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        app:cardCornerRadius="50dp"
+        android:layout_marginTop="@dimen/marginTop20"
+        app:cardPreventCornerOverlap="false"
+        app:cardUseCompatPadding="false"
+        app:layout_constraintTop_toBottomOf="@+id/textView_NameArtistProfile"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        >
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/xd"
+            android:id="@+id/imageView_PhotoArtistProfile"
+            android:layout_gravity="center"
+            android:scaleType="fitXY"/>
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:orientation="horizontal"
+        android:id="@+id/cardView_RandomArtistProfile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="20dp"
+        app:cardPreventCornerOverlap="false"
+        app:cardUseCompatPadding="false"
+        android:layout_marginTop="@dimen/marginTop40"
+        android:backgroundTint="@color/colorAccent"
+        app:layout_constraintTop_toBottomOf="@id/cardView_ImageArtist"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Aleatorio"
+            android:textSize="@dimen/textSize30"
+            android:layout_margin="@dimen/margin5"
+            android:textStyle="bold"
+            />
+
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView_ExitosProfileArtist"
+        android:text="Exitos"
+        android:textSize="@dimen/textSize25"
+        android:textStyle="bold"
+        android:layout_margin="@dimen/margin15"
+        app:layout_constraintTop_toBottomOf="@+id/cardView_RandomArtistProfile"
+        app:layout_constraintLeft_toLeftOf="parent"
+        />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/height300"
+        android:id="@+id/recycler_TracksArtistProfile"
+        android:layout_margin="@dimen/margin15"
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@+id/textView_ExitosProfileArtist"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView_DiscografiaProfileArtist"
+        android:text="Discografia"
+        android:textSize="@dimen/textSize25"
+        android:textStyle="bold"
+        android:layout_margin="@dimen/margin15"
+        app:layout_constraintTop_toBottomOf="@id/recycler_TracksArtistProfile"
+        app:layout_constraintLeft_toLeftOf="parent"
+        />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/height500"
+                android:id="@+id/recycler_AlbumsProfileArtist"
+                android:layout_margin="@dimen/margin15"
+                android:layout_marginBottom="@dimen/marginBottom30"
+                app:layout_constraintTop_toBottomOf="@+id/textView_DiscografiaProfileArtist"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="@id/recycler_TracksArtistProfile"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

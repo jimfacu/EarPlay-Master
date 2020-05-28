@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:layout_width="@dimen/width100"
+        android:layout_height="@dimen/height100"
+        android:id="@+id/imageView_AlbumProfileArtist"
+        android:src="@drawable/xd"
+        android:layout_margin="@dimen/margin15"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView_NameAlbumArtistProfile"
+        android:text="Backspacer"
+        android:textSize="@dimen/textSize25"
+        android:layout_marginLeft="@dimen/marginleft10"
+        app:layout_constraintLeft_toRightOf="@+id/imageView_AlbumProfileArtist"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView_YearAlbum"
+        android:textSize="@dimen/textSize15"
+        android:layout_margin="@dimen/margin10"
+        app:layout_constraintTop_toBottomOf="@id/textView_NameAlbumArtistProfile"
+        app:layout_constraintLeft_toRightOf="@id/imageView_AlbumProfileArtist"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:id="@+id/imageView_imageBandTrackAlbum"
+        android:src="@drawable/xd"
+        android:layout_margin="@dimen/margin15"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView_NameAlbumSearch"
+        android:text="Backspacer"
+        android:textSize="@dimen/textSize15"
+        android:layout_marginHorizontal="@dimen/margin10"
+        android:textStyle="bold"
+        app:layout_constraintLeft_toRightOf="@+id/imageView_imageBandTrackAlbum"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView_nameBandSearch"
+        android:textSize="@dimen/textSize10"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="1dp"
+        app:layout_constraintTop_toBottomOf="@id/textView_NameAlbumSearch"
+        app:layout_constraintLeft_toRightOf="@id/imageView_imageBandTrackAlbum"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

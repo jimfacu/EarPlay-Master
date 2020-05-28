@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".HomeActivity.View_HomeActivity"
+    android:background="@color/Negro">
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/height0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="@dimen/margin15">
+
+            <TextView
+                android:id="@+id/textView_MisPlaylist"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin15"
+                android:layout_marginTop="@dimen/marginTop30"
+                android:text="Mis Playlist"
+                android:textColor="@color/Blanco"
+                android:textSize="@dimen/textSize35"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@id/recycler_MisPlaylist"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler_MisPlaylist"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/margin15"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/textView_MisPlaylist" />
+
+            <TextView
+                android:id="@+id/textView_Rompiendola"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin15"
+                android:layout_marginTop="@dimen/marginTop20"
+                android:text="Rompiendola"
+                android:textColor="@color/Blanco"
+                android:textSize="@dimen/textSize35"
+                android:textStyle="bold"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/recycler_MisPlaylist" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler_Tracks"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/height200"
+                android:layout_marginHorizontal="@dimen/margin15"
+                android:layout_marginTop="@dimen/marginTop10"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/textView_Rompiendola" />
+
+            <TextView
+                android:id="@+id/textView_ArtistasMasEscuchados"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/margin15"
+                android:layout_marginTop="@dimen/marginTop20"
+                android:text="Artistas Mas Escuchados"
+                android:textColor="@color/Blanco"
+                android:textSize="@dimen/textSize25"
+                android:textStyle="bold"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/recycler_Tracks" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler_Artistas"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/height200"
+                android:layout_marginHorizontal="15dp"
+                android:layout_marginTop="@dimen/marginTop10"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/textView_ArtistasMasEscuchados" />
+
+
+            <TextView
+                android:id="@+id/textView_PlaylistRank"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/margin15"
+                android:layout_marginTop="@dimen/marginTop20"
+                android:text="Tendendencias"
+                android:textColor="@color/Blanco"
+                android:textSize="@dimen/textSize25"
+                android:textStyle="bold"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/recycler_Artistas" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler_PlaylistRank"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/height200"
+                android:layout_marginTop="@dimen/margin15"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/textView_PlaylistRank"
+                tools:ignore="NotSibling" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </androidx.core.widget.NestedScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">EarPlay</string>
+
+    <string name="marginBottom56">56dp</string>
+
+    <string-array name="categorys">
+
+        <item>Cancion</item>
+        <item>Album</item>
+        <item>Artista</item>
+    </string-array>
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>

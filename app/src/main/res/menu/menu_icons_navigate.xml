@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <item
+        android:id="@+id/homeIcon"
+        android:icon="@drawable/ic_home_black_24dp"
+        android:title="Inicio"
+        app:showAsAction="ifRoom"
+        />
+    <item
+        android:id="@+id/searchIcon"
+        android:icon="@drawable/ic_search_black_24dp"
+        android:title="Buscar"
+        app:showAsAction="ifRoom"
+        />
+
+    <item
+        android:id="@+id/vacio"
+        android:title=""/>
+    <item
+        android:id="@+id/favoriteIcon"
+        android:icon="@drawable/ic_favorite_border_black_24dp"
+        android:title="Favoritos"
+        app:showAsAction="withText"
+        />
+    <item
+        android:id="@+id/playlistIcon"
+        android:icon="@drawable/ic_playlist_play_black_24dp"
+        android:title="Mi biblioteca"
+        app:showAsAction="withText"
+        />
+</menu>

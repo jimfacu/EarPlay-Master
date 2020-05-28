@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="350dp"
+    android:layout_height="300dp"
+    android:background="@color/Negro"
+    android:layout_gravity="center">
+
+    <EditText
+        android:id="@+id/editText_TituloMyPlaylist"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Titulo de mi Playlist"
+        android:textColor="@color/Negro"
+        android:textColorHint="@color/Negro"
+        android:background="@color/Blanco"
+        android:layout_marginTop="@dimen/marginTop20"
+        android:layout_marginHorizontal="@dimen/margin15"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"/>
+
+    <EditText
+        android:id="@+id/editText_DescripcionMyPlaylist"
+        android:layout_width="match_parent"
+        android:layout_height="130dp"
+        android:textColorHint="@color/Negro"
+        android:background="@color/Blanco"
+        android:gravity="top"
+        android:hint="Descripcion De Mi Playlist"
+        android:layout_marginTop="@dimen/marginTop20"
+        android:layout_marginHorizontal="@dimen/margin15"
+        app:layout_constraintTop_toBottomOf="@id/editText_TituloMyPlaylist"
+        app:layout_constraintBottom_toTopOf="@id/btn_AceptarMyPlaylist"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_CancelarMyPlaylist"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        android:text="Cancelar"
+        android:layout_marginBottom="@dimen/marginTop20"
+        android:layout_marginHorizontal="@dimen/margin15"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_AceptarMyPlaylist"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        android:text="Aceptar"
+        android:layout_marginBottom="@dimen/marginTop20"
+        android:layout_marginHorizontal="@dimen/margin15"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/btn_CancelarMyPlaylist"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

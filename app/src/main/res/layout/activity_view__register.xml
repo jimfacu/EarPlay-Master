@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView_nameLogo"
+            android:text="EarPlay!!"
+            android:textSize="@dimen/textSize50"
+            android:textStyle="italic"
+            android:layout_marginTop="200dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"/>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textInputLayout_NameUser"
+        android:layout_marginHorizontal="20dp"
+        app:layout_constraintTop_toBottomOf="@id/textView_nameLogo"
+        >
+        <EditText android:id="@+id/input_NameUser"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textEmailAddress"
+            android:hint="UserName" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/textInputLayout_Email"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="@dimen/marginTop20"
+            app:layout_constraintTop_toBottomOf="@id/textInputLayout_NameUser"
+            >
+            <EditText android:id="@+id/input_email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textEmailAddress"
+                android:hint="Email" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/textInputLayout_contraseña"
+            android:layout_marginTop="20dp"
+            android:layout_marginHorizontal="20dp"
+            app:layout_constraintTop_toBottomOf="@id/textInputLayout_Email"
+            >
+            <EditText android:id="@+id/input_password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPassword"
+                android:hint="Password"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_Register"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/Negro"
+            android:text="Registrarse"
+            android:layout_marginTop="@dimen/marginTop20"
+            android:layout_marginHorizontal="@dimen/marginTop20"
+            app:layout_constraintTop_toBottomOf="@id/textInputLayout_contraseña"/>
+
+        <TextView android:id="@+id/link_signup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp"
+            android:text="Ya tenes cuenta ? inicia Sesion aqui"
+            android:gravity="center"
+            android:textSize="@dimen/textSize20"
+            android:layout_marginTop="@dimen/marginTop40"
+            app:layout_constraintTop_toBottomOf="@id/btn_login"
+            app:layout_constraintLeft_toLeftOf="parent"/>
+ </androidx.constraintlayout.widget.ConstraintLayout>

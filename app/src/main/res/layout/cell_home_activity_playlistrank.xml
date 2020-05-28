@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="130dp"
+    android:layout_height="wrap_content"
+    android:background="@color/Negro"
+    android:layout_marginVertical="@dimen/marginVertica10"
+    android:layout_marginHorizontal="@dimen/margin15">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/height150"
+        android:id="@+id/imageView_PlaylistRank"
+        android:src="@drawable/xd"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/textView_PlaylistNameRank"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView_PlaylistNameRank"
+        android:text="Nombre Del Artista"
+        android:textSize="@dimen/textSize15"
+        android:textColor="@color/Blanco"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:layout_marginBottom="@dimen/marginBottom30"
+        app:layout_constraintTop_toBottomOf="@+id/imageView_PlaylistRank"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

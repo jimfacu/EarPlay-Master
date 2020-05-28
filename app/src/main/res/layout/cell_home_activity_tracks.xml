@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="@dimen/width130"
+    android:layout_height="wrap_content"
+    android:background="@color/Negro"
+    android:layout_marginVertical="@dimen/marginVertical5"
+    android:layout_marginHorizontal="@dimen/margin15">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/height150"
+        android:id="@+id/imageView_trackImage"
+        android:src="@drawable/xd"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/textView_TrackName"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView_TrackName"
+        android:text="Nombre Del Artista"
+        android:textSize="@dimen/textSize12"
+        android:textStyle="italic"
+        android:textColor="@color/Blanco"
+        android:gravity="center"
+        android:layout_marginRight="@dimen/marginRight20"
+        app:layout_constraintTop_toBottomOf="@+id/imageView_trackImage"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/textView_TrackNameArtists"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView_TrackNameArtists"
+        android:text="Nombre Del Artista"
+        android:textSize="@dimen/textSize10"
+        android:textStyle="italic"
+        android:textColor="@color/Blanco"
+        android:gravity="center"
+        app:layout_constraintTop_toBottomOf="@+id/textView_TrackName"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:alpha="0.5"
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

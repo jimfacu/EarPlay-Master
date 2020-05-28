@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "211821557788",
+    "firebase_url": "https://earplay-cee3b.firebaseio.com",
+    "project_id": "earplay-cee3b",
+    "storage_bucket": "earplay-cee3b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:211821557788:android:4f4d80c62c4ce7ec5e47d9",
+        "android_client_info": {
+          "package_name": "com.example.earplay"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "211821557788-g46elc6pvv4hnf1d9psrpfs652jiqumc.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.earplay",
+            "certificate_hash": "c2f3c9a5e3dc9553540eed3902f88f5d4e59dd8d"
+          }
+        },
+        {
+          "client_id": "211821557788-23unb9266ev6e4l6acgj411dq0hi31tp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyATmFBKjlcleZUuMgg24nyKVPj1GdZa8uA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "211821557788-23unb9266ev6e4l6acgj411dq0hi31tp.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
