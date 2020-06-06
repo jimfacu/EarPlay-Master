@@ -15,9 +15,9 @@
         android:title="Buscar"
         app:showAsAction="ifRoom"
         />
-
     <item
-        android:id="@+id/vacio"
+        android:id="@+id/pausePlayIcon"
+        android:icon="@drawable/ic_pause_black_24dp"
         android:title=""/>
     <item
         android:id="@+id/favoriteIcon"

@@ -71,10 +71,6 @@ public class AlbumsSearch implements Parcelable {
         return cover_medium;
     }
 
-    public void setCover_medium(String cover_medium) {
-        this.cover_medium = cover_medium;
-    }
-
     public Artist getArtist() {
         return artist;
     }

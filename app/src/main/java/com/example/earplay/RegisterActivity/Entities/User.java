@@ -10,14 +10,14 @@ public class User {
     private String userName;
     private String email;
     private String password;
-    private List<FavTracks> favTracks;
+    private List<FavTracks> cancionesFavoritas;
     private List<Playlist> myPlaylists;
 
     public User(String userName, String email, String password, List<FavTracks> favTracks, List<Playlist> myPlaylists) {
         this.userName = userName;
         this.email = email;
         this.password = password;
-        this.favTracks = favTracks;
+        this.cancionesFavoritas = favTracks;
         this.myPlaylists = myPlaylists;
     }
 
@@ -46,11 +46,11 @@ public class User {
     }
 
     public List<FavTracks> getFavTracks() {
-        return favTracks;
+        return cancionesFavoritas;
     }
 
     public void setFavTracks(List<FavTracks> favTracks) {
-        this.favTracks = favTracks;
+        this.cancionesFavoritas = favTracks;
     }
 
     public List<Playlist> getMyPlaylists() {

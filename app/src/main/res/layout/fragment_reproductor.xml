@@ -62,6 +62,37 @@
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        
+        <SeekBar
+            android:layout_width="170dp"
+            android:layout_height="match_parent"
+            android:id="@+id/seekBar_ReproductorFragment"
+            android:layout_marginHorizontal="@dimen/margin15"
+            android:layout_marginTop="@dimen/margin5"
+            app:layout_constraintLeft_toRightOf="@id/imageView_TrackReproductor"
+            app:layout_constraintRight_toLeftOf="@id/button_previousSong"
+            app:layout_constraintTop_toBottomOf="@id/textView_ArtistNameReproductor"/>
+        
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView_startTime"
+            android:text="0:00"
+            android:layout_marginTop="@dimen/margin5"
+            android:textSize="@dimen/textSize15"
+            app:layout_constraintTop_toBottomOf="@id/textView_ArtistNameReproductor"
+            app:layout_constraintRight_toLeftOf="@id/seekBar_ReproductorFragment"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView_endTime"
+            android:text="00:30"
+            android:layout_marginTop="@dimen/margin5"
+            android:textSize="@dimen/textSize15"
+            app:layout_constraintTop_toBottomOf="@id/textView_ArtistNameReproductor"
+            app:layout_constraintLeft_toRightOf="@id/seekBar_ReproductorFragment"/>
+            
+  </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.cardview.widget.CardView>

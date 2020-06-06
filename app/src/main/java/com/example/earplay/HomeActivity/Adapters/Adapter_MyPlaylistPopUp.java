@@ -44,7 +44,7 @@ class CustomViewHolder extends RecyclerView.ViewHolder implements View.OnClickLi
     public void setPlaylist(Playlist playlist) {
         textView_namePlaylist.setText(playlist.getNamePlaylist());
         if(playlist.getTracksDeMiPlaylists()!= null) {
-            Glide.with(itemView).load(playlist.getTracksDeMiPlaylists().get(playlist.getTracksDeMiPlaylists().size() - 1)).into(imageView_Playlist);
+            Glide.with(itemView).load(playlist.getTracksDeMiPlaylists().get(playlist.getTracksDeMiPlaylists().size() - 1).getAlbumGenerico().getCover_medium()).into(imageView_Playlist);
         }
     }
 

@@ -47,5 +47,4 @@ public interface ServiceApi_HomeActivity {
 
     @GET("https://api.deezer.com/search/track")
     Call<ContainerTracksRank> getTracksSearch(@Query("q")String nameTrack);
-
 }

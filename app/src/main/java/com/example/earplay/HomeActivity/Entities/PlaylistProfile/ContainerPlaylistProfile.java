@@ -69,15 +69,7 @@ public class ContainerPlaylistProfile implements Parcelable {
         return picture_big;
     }
 
-    public void setPicture_big(String picture_big) {
-        this.picture_big = picture_big;
-    }
-
     public TracksPlaylist getTracks() {
         return tracks;
-    }
-
-    public void setTracks(TracksPlaylist tracks) {
-        this.tracks = tracks;
     }
 }

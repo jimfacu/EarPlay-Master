@@ -1,14 +1,65 @@
 <resources>
     <string name="app_name">EarPlay</string>
 
-    <string name="marginBottom56">56dp</string>
+    //RegisterActivity
+    <string name="Usuario_Registrado">Usuario registrado Exitosamente</string>
+    <string name="Intentar_De_Nuevo">Por favor , intentar de nuevo</string>
+
+    //LoginActivity
+    <string name="Completar_Datos">Por favor , completar los campos solicitados</string>
+    <string name="Credenciales_Erroneas">Credenciales errones, por favor intentar nuevamente</string>
+
+    //HomeAcitivity
+
+    <string name="Cancion_agregada_eliminada_a_favoritos_exitosamente">Cancion agregada / eliminada a favoritos exitosamente</string>
+    <string name="text_plain">text/plain</string>
+    <string name="Error_al_guardar_playlist">Error </string>
+    <string name="Escuchate_este_temaiken">Escuchate este temaiken!!  </string>
+    <string name="Share_with">Share with</string>
+    <string name="WhatsApp_not_Installed">WhatsApp not Installed</string>
+    <string name="Album">Album</string>
+    <string name="Cancion">Cancion</string>
+    <string name="Canciones">Canciones</string>
+    <string name="Artista">Artista</string>
+    <string name="Ocurrio_un_error">Ocurrio un error</string>
+    <string name="PlaylistVacia">Playlist sin canciones </string>
+    //Presenter
+    <string name="PorFavor_Conectarse_A_Internet">Por favor ,Conectarse a internet</string>
+
+    //Interactor
+    <string name="Error">Error</string>
+    <string name="El_codigo_de_error_es">El codigo de error es   </string>
+    <string name="El_mensaje_de_error_es">El mensaje de error es  </string>
+
+    //Notificaticiones
+    <string name="Mensaje">Mensaje</string>
+    <string name="MENSAJE_RECIBIDO_DE">Mensaje Recibido de </string>
+    <string name="Notificacion">Notificacion</string>
+    <string name="La_Notificacion_es">la notificacion es</string>
+    <string name="title">title</string>
+    <string name="body">body</string>
+    <string name="Informacion">Informacion</string>
+    <string name="Descriptcion">Descriptcion</string>
+
+    //Fragment MyPlaylist
+    <string name="FavTracks">FavTracks</string>
+    <string name="Album_de_favoritos_sin_canciones">Album de favoritos sin canciones</string>
+
+    //Fragment PlayllistProfile
+    <string name="Cancion_añadida_Exitosamente">Cancion añadida Exitosamente !</string>
+    <string name="Esta_cancion_ya_se_encuentra_en_esta_playlist">Esta cancion ya se encuentra en esta playlist</string>
+
+    //Fragment TracksOfMyPlaylist
+    <string name="La_playlist_no_puede_quedar_vacia">La playlist no puede quedar vacia </string>
+
+
 
     <string-array name="categorys">
-
         <item>Cancion</item>
         <item>Album</item>
         <item>Artista</item>
     </string-array>
 
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="defaultNotification">DefaultNotification</string>
 </resources>

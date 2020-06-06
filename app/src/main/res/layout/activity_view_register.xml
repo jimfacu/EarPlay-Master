@@ -3,7 +3,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/Negro">
 
         <TextView
             android:layout_width="wrap_content"
@@ -66,20 +67,23 @@
             android:id="@+id/btn_Register"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/Negro"
+            android:background="@color/Blanco"
+            android:textColor="@color/Negro"
             android:text="Registrarse"
             android:layout_marginTop="@dimen/marginTop20"
             android:layout_marginHorizontal="@dimen/marginTop20"
             app:layout_constraintTop_toBottomOf="@id/textInputLayout_contraseña"/>
 
-        <TextView android:id="@+id/link_signup"
+        <TextView
+            android:id="@+id/link_signup"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="24dp"
             android:text="Ya tenes cuenta ? inicia Sesion aqui"
+            android:textColor="@color/Blanco"
             android:gravity="center"
             android:textSize="@dimen/textSize20"
             android:layout_marginTop="@dimen/marginTop40"
-            app:layout_constraintTop_toBottomOf="@id/btn_login"
+            app:layout_constraintTop_toBottomOf="@+id/btn_Register"
             app:layout_constraintLeft_toLeftOf="parent"/>
  </androidx.constraintlayout.widget.ConstraintLayout>

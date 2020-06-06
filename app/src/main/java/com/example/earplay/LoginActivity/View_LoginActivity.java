@@ -14,6 +14,7 @@ import android.widget.Toast;
 import com.example.earplay.HomeActivity.View_HomeActivity;
 import com.example.earplay.R;
 import com.example.earplay.RegisterActivity.View_RegisterActivity;
+import com.google.firebase.auth.FirebaseAuth;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -42,9 +43,13 @@ public class View_LoginActivity extends AppCompatActivity implements Contract_Lo
         ButterKnife.bind(this);
         presenter = new Presenter_LoginActivity(this,this);
         progressDialog = new ProgressDialog(getApplicationContext());
-
         btnLogin.setOnClickListener(loginListener);
         textView_Register.setOnClickListener(registerListener);
+        FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
+        if(firebaseAuth.getCurrentUser() != null){
+            finish();
+            startActivity(new Intent(this, View_HomeActivity.class));
+        }
 
     }
 
@@ -52,12 +57,12 @@ public class View_LoginActivity extends AppCompatActivity implements Contract_Lo
         boolean mandarInfo = true;
         if(emailUser.getText().toString().trim().isEmpty()){
             mandarInfo = false;
-            Toast.makeText(this, "Por favor , completar los campos solicitados", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, getString(R.string.Completar_Datos), Toast.LENGTH_SHORT).show();
             progressDialog.dismiss();
         }
         if(passwordUser.getText().toString().trim().isEmpty()){
             mandarInfo = false;
-            Toast.makeText(this, "Por favor , completar los campos solicitados", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, getString(R.string.Completar_Datos), Toast.LENGTH_SHORT).show();
             progressDialog.dismiss();
         }
 
@@ -83,9 +88,10 @@ public class View_LoginActivity extends AppCompatActivity implements Contract_Lo
             progressDialog.dismiss();
             Intent i = new Intent(this, View_HomeActivity.class);
             startActivity(i);
+            finish();
         }else{
             progressDialog.dismiss();
-            Toast.makeText(this, "Credenciales errones, por favor intentar nuevamente", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, getString(R.string.Credenciales_Erroneas), Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -94,6 +100,7 @@ public class View_LoginActivity extends AppCompatActivity implements Contract_Lo
         public void onClick(View view) {
             Intent i = new Intent(getApplicationContext(),View_RegisterActivity.class);
             startActivity(i);
+            finish();
         }
     };
 }

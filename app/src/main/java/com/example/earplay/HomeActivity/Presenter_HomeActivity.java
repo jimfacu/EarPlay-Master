@@ -1,6 +1,9 @@
 package com.example.earplay.HomeActivity;
 
 import android.content.Context;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
+import android.widget.Toast;
 
 import com.example.earplay.HomeActivity.Entities.AlbumProfile.ContainerAlbumProfile;
 import com.example.earplay.HomeActivity.Entities.AlbumSearch.ContainerAlbumSearch;
@@ -13,6 +16,7 @@ import com.example.earplay.HomeActivity.Entities.MisPlaylist.Playlist;
 import com.example.earplay.HomeActivity.Entities.PlaylistProfile.ContainerPlaylistProfile;
 import com.example.earplay.HomeActivity.Entities.PlaylistRank.ContainerPlaylistRank;
 import com.example.earplay.HomeActivity.Entities.TracksRank.ContainerTracksRank;
+import com.example.earplay.R;
 
 import java.util.List;
 
@@ -44,7 +48,11 @@ public class Presenter_HomeActivity implements Contract_HomeActivity.Presenter {
 
     @Override
     public void pedirArtistasRankAlInteractor() {
-        interactor.pedirListaDeArtistasRank();
+        if (internetAvalible()) {
+            interactor.pedirListaDeArtistasRank();
+        }else{
+            Toast.makeText(context, context.getString(R.string.PorFavor_Conectarse_A_Internet), Toast.LENGTH_SHORT).show();
+        }
     }
 
     @Override
@@ -62,7 +70,6 @@ public class Presenter_HomeActivity implements Contract_HomeActivity.Presenter {
         if(view != null){
             view.mostrarPlayListRank(containerPlaylistRank);
         }
-
     }
 
     @Override
@@ -188,7 +195,9 @@ public class Presenter_HomeActivity implements Contract_HomeActivity.Presenter {
 
     @Override
     public void recibirRsptaGuardadoPlaylist(boolean guardado) {
-
+        if(view!= null){
+            view.mostrarRsptaMyPlaylist(guardado);
+        }
     }
 
     @Override
@@ -201,5 +210,17 @@ public class Presenter_HomeActivity implements Contract_HomeActivity.Presenter {
     @Override
     public void recibirListaConNuevoTrack(ContainerTracksFav containerTracksFav) {
         interactor.guardarContainerFavTracks(containerTracksFav);
+    }
+
+    private boolean internetAvalible(){
+        boolean connected;
+        ConnectivityManager connectivityManager = (ConnectivityManager)context.getSystemService(Context.CONNECTIVITY_SERVICE);
+        if(connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_MOBILE).getState() == NetworkInfo.State.CONNECTED ||
+                connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_WIFI).getState() == NetworkInfo.State.CONNECTED) {
+            connected = true;
+        }else{
+            connected = false;
+        }
+        return connected;
     }
 }

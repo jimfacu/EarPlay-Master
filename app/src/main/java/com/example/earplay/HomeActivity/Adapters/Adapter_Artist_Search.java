@@ -24,11 +24,13 @@ public class Adapter_Artist_Search extends RecyclerView.Adapter {
     private List<ArtistSearch> artistSearchList;
     private List<ArtistSearch> tankArtistSearchList;
     private ArtistSearchProfile artistSearchProfile;
+    private Context context;
 
-    public Adapter_Artist_Search(ArtistSearchProfile artistSearchProfile) {
+    public Adapter_Artist_Search(Context context,ArtistSearchProfile artistSearchProfile) {
         this.artistSearchList = new ArrayList<>();
         this.tankArtistSearchList = new ArrayList<>();
         this.artistSearchProfile = artistSearchProfile;
+        this.context = context;
     }
 
     @NonNull
@@ -91,7 +93,7 @@ public class Adapter_Artist_Search extends RecyclerView.Adapter {
         public void setArtistSearch(ArtistSearch artistSearch){
             Glide.with(itemView).load(artistSearch.getPicture_medium()).into(imageView_Artist);
             textView_nameArtist.setText(artistSearch.getName());
-            textView_artista.setText("Artista");
+            textView_artista.setText(context.getString(R.string.Artista));
         }
     }
 

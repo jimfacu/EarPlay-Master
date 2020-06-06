@@ -22,7 +22,6 @@
         android:layout_height="wrap_content"
         android:id="@+id/textView_NameMyPlaylist"
         android:textColor="@color/Blanco"
-        android:text="Backspacer"
         android:textSize="@dimen/textSize25"
         android:layout_marginLeft="@dimen/marginleft10"
         app:layout_constraintLeft_toRightOf="@+id/imageView_MyPlaylist"

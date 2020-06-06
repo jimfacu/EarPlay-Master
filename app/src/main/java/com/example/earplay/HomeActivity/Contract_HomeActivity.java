@@ -6,6 +6,7 @@ import com.example.earplay.HomeActivity.Entities.AlbumsArtist.ContainerAlbums;
 import com.example.earplay.HomeActivity.Entities.ArtistRank.ContainerArtistRank;
 import com.example.earplay.HomeActivity.Entities.ArtistSearch.ContainerArtistSearch;
 import com.example.earplay.HomeActivity.Entities.Genericos.ContainerTracksFav;
+import com.example.earplay.HomeActivity.Entities.Genericos.TrackGenerico;
 import com.example.earplay.HomeActivity.Entities.MisPlaylist.ContainerMisPlaylist;
 import com.example.earplay.HomeActivity.Entities.MisPlaylist.Playlist;
 import com.example.earplay.HomeActivity.Entities.PlaylistProfile.ContainerPlaylistProfile;
@@ -29,10 +30,9 @@ public interface Contract_HomeActivity {
         void mostrarBusquedaTracks(ContainerTracksRank containerTracksRank);
         void mostrarBusquedaAlbums(ContainerAlbumSearch containerAlbumSearch);
         void mostrarBusquedaArtistas(ContainerArtistSearch containerArtistSearch);
+        void mostrarRsptaMyPlaylist(boolean ok);
 
         //FavTracks
-
-        //Firebased
         void mostrarMisPlaylist(ContainerMisPlaylist containerMisPlaylist);
         void mostrarMisTracksFav(ContainerTracksFav containerTracksFav);
     }
@@ -94,11 +94,19 @@ public interface Contract_HomeActivity {
         void pedirContainerFavTracks();
         void guardarContainerFavTracks(ContainerTracksFav containerTracksFav);
         }
+
         interface FavTrack{
             void pedirTrackReproductor();
             void borrarTrackFavTrack();
+            void refreshPositionFromDeleteMyPlaylist();
             void cargarListaFavTrackReproductor(ContainerTracksFav containerTracksFav);
+            void playPause();
         }
 
-        }
+        interface Refresh{
+            void refreshListFavTracks(ContainerTracksFav containerTracksFav);
+            void refreshListPlayList(ContainerMisPlaylist containerMisPlaylist);
+    }
+
+}
 

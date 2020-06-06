@@ -45,6 +45,8 @@ public class Interactor_RegisterActivity implements Contract_RegisterActivity.In
                         public void onComplete(@NonNull Task<Void> task) {
                             if(task.isSuccessful()){
                                 presenter.recibirRespuestaDelInteractor(true);
+                            }else{
+                                presenter.recibirRespuestaDelInteractor(false);
                             }
                         }
                     });
@@ -53,8 +55,3 @@ public class Interactor_RegisterActivity implements Contract_RegisterActivity.In
         });
     }
 }
-
-   /* FirebaseDatabase database = FirebaseDatabase.getInstance();
-    DatabaseReference reference = database.getReference("films");
-        reference.setValue(listWithNewsFilms)
-                .addOnCompleteListener(*/

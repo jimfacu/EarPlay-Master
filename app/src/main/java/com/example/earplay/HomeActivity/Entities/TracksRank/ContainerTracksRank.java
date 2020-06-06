@@ -45,8 +45,4 @@ public class ContainerTracksRank implements Parcelable {
     public List<Track> getTracks() {
         return data;
     }
-
-    public void setTracks(List<Track> data) {
-        this.data = data;
-    }
 }

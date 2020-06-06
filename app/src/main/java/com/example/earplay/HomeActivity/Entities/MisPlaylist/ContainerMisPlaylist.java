@@ -54,12 +54,4 @@ public class ContainerMisPlaylist implements Parcelable {
     public void setMiPlaylists(List<Playlist> miPlaylists) {
         MiPlaylists = miPlaylists;
     }
-
-    public int getTotal() {
-        return total;
-    }
-
-    public void setTotal(int total) {
-        this.total = total;
-    }
 }

@@ -20,6 +20,7 @@ import com.example.earplay.HomeActivity.Entities.PlaylistRank.ContainerPlaylistR
 import com.example.earplay.HomeActivity.Entities.TracksRank.ContainerTracksRank;
 import com.example.earplay.HomeActivity.Utils.ServiceApi_HomeActivity;
 import com.example.earplay.HomeActivity.Utils.ServiceRetrofit_HomeActivity;
+import com.example.earplay.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
@@ -37,6 +38,10 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class Interactor_HomeActivity implements Contract_HomeActivity.Interactor {
+
+    private static final String Users ="Users";
+    private static final String MyPlaylists = "myPlaylists";
+    private static final String TracksFavoritos = "favoriteTracks";
 
     private Contract_HomeActivity.Presenter presenter;
     private Context context;
@@ -57,14 +62,13 @@ public class Interactor_HomeActivity implements Contract_HomeActivity.Interactor
                 if(response.isSuccessful()){
                     presenter.recibirListaDeArtistasRank(response.body());
                 }else{
-                    Log.d("Error","El codigo de error es "+response.code());
-                    Toast.makeText(context, "El codigo de error es "+response.code(), Toast.LENGTH_SHORT).show();
+                    Log.d(context.getString(R.string.Error),context.getString(R.string.El_codigo_de_error_es)+response.code());
                 }
             }
 
             @Override
             public void onFailure(Call<ContainerArtistRank> call, Throwable t) {
-                Log.d("Error","El mensaje de error es "+t.getMessage());
+                Log.d(context.getString(R.string.Error),context.getString(R.string.El_mensaje_de_error_es)+t.getMessage());
             }
         });
 
@@ -79,16 +83,15 @@ public class Interactor_HomeActivity implements Contract_HomeActivity.Interactor
             public void onResponse(Call<ContainerTracksRank> call, Response<ContainerTracksRank> response) {
                 if(response.isSuccessful()){
                     presenter.recibirListaDeTracksRank(response.body());
-                    Log.d("Cod","El codigo es "+response.code());
                 }
                 else{
-                    Log.d("Error","El codigo de error es "+response.code());
+                    Log.d(context.getString(R.string.Error),context.getString(R.string.El_codigo_de_error_es)+response.code());
                 }
             }
 
             @Override
             public void onFailure(Call<ContainerTracksRank> call, Throwable t) {
-                Log.d("Error","El mensaje de error es "+t.getMessage());
+                Log.d(context.getString(R.string.Error),context.getString(R.string.El_mensaje_de_error_es)+t.getMessage());
             }
         });
     }
@@ -102,14 +105,12 @@ public class Interactor_HomeActivity implements Contract_HomeActivity.Interactor
                 if(response.isSuccessful()){
                     presenter.recibirListaPlaylistRank(response.body());
                 }else{
-                    Log.d("Error heavy","Que anda pasando");
+                    Log.d(context.getString(R.string.Error),context.getString(R.string.El_codigo_de_error_es)+response.code());
                 }
             }
-
             @Override
             public void onFailure(Call<ContainerPlaylistRank> call, Throwable t) {
-
-                Log.d("Error heavy","Que anda pasando"+ t.getMessage());
+                Log.d(context.getString(R.string.Error),context.getString(R.string.El_mensaje_de_error_es)+ t.getMessage());
             }
         });
     }
@@ -123,13 +124,14 @@ public class Interactor_HomeActivity implements Contract_HomeActivity.Interactor
             public void onResponse(Call<ContainerTracksRank> call, Response<ContainerTracksRank> response) {
                 if(response.isSuccessful()){
                     presenter.recibirTracksProfileArtistDelInteractor(response.body());
-                    Log.d("Cod","El codigo de tracks PROFILE ARTIST ES "+response.code());
+                }else{
+                    Log.d(context.getString(R.string.Error),context.getString(R.string.El_codigo_de_error_es)+response.code());
                 }
             }
 
             @Override
             public void onFailure(Call<ContainerTracksRank> call, Throwable t) {
-                Log.d("Cod","El mensaje de tracks PROFILE ARTIST ES "+t.getMessage());
+                Log.d(context.getString(R.string.Error),context.getString(R.string.El_mensaje_de_error_es)+ t.getMessage());
             }
         });
     }
@@ -143,12 +145,13 @@ public class Interactor_HomeActivity implements Contract_HomeActivity.Interactor
             public void onResponse(Call<ContainerAlbums> call, Response<ContainerAlbums> response) {
                 if(response.isSuccessful()){
                     presenter.recibirAlbumsArtist(response.body());
-                    Log.d("Cod","El codigo de albums PROFILE ARTIST ES "+response.code());
+                }else{
+                    Log.d(context.getString(R.string.Error),context.getString(R.string.El_codigo_de_error_es)+response.code());
                 }
             }
             @Override
             public void onFailure(Call<ContainerAlbums> call, Throwable t) {
-                Log.d("Cod","El mensaje de albums PROFILE ARTIST ES "+t.getMessage());
+                Log.d(context.getString(R.string.Error),context.getString(R.string.El_mensaje_de_error_es)+ t.getMessage());
             }
         });
     }
@@ -162,13 +165,14 @@ public class Interactor_HomeActivity implements Contract_HomeActivity.Interactor
             public void onResponse(Call<ContainerAlbumProfile> call, Response<ContainerAlbumProfile> response) {
                 if(response.isSuccessful()){
                     presenter.recibirAlbumProfile(response.body());
-                    Log.d("Cod","El codigo de albums PROFILE ARTIST ES "+response.code());
+                }else{
+                    Log.d(context.getString(R.string.Error),context.getString(R.string.El_codigo_de_error_es)+response.code());
                 }
             }
 
             @Override
             public void onFailure(Call<ContainerAlbumProfile> call, Throwable t) {
-                Log.d("Cod","El mensaje de albums PROFILE ARTIST ES "+t.getMessage());
+                Log.d(context.getString(R.string.Error),context.getString(R.string.El_mensaje_de_error_es)+ t.getMessage());
             }
         });
     }
@@ -182,14 +186,14 @@ public class Interactor_HomeActivity implements Contract_HomeActivity.Interactor
             public void onResponse(Call<ContainerAlbums> call, Response<ContainerAlbums> response) {
                 if(response.isSuccessful()){
                     presenter.recibirAlbumsAlbumProfile(response.body());
+                }else{
+                    Log.d(context.getString(R.string.Error),context.getString(R.string.El_codigo_de_error_es)+response.code());
                 }
-
-
             }
 
             @Override
             public void onFailure(Call<ContainerAlbums> call, Throwable t) {
-
+                Log.d(context.getString(R.string.Error),context.getString(R.string.El_mensaje_de_error_es)+ t.getMessage());
             }
         });
     }
@@ -204,13 +208,13 @@ public class Interactor_HomeActivity implements Contract_HomeActivity.Interactor
                 if(response.isSuccessful()){
                     presenter.recibirPlaylistProfileTracks(response.body());
                 }else{
-                    Log.d("Error","El codigo de error playlistProfile es "+response.code());
+                    Log.d(context.getString(R.string.Error),context.getString(R.string.El_codigo_de_error_es)+response.code());
                 }
             }
 
             @Override
             public void onFailure(Call<ContainerPlaylistProfile> call, Throwable t) {
-
+                Log.d(context.getString(R.string.Error),context.getString(R.string.El_mensaje_de_error_es)+ t.getMessage());
             }
         });
     }
@@ -226,12 +230,14 @@ public class Interactor_HomeActivity implements Contract_HomeActivity.Interactor
             public void onResponse(Call<ContainerTracksRank> call, Response<ContainerTracksRank> response) {
                 if(response.isSuccessful()){
                     presenter.recibirTrackABuscar(response.body());
+                }else{
+                    Log.d(context.getString(R.string.Error),context.getString(R.string.El_codigo_de_error_es)+response.code());
                 }
             }
 
             @Override
             public void onFailure(Call<ContainerTracksRank> call, Throwable t) {
-
+                Log.d(context.getString(R.string.Error),context.getString(R.string.El_mensaje_de_error_es)+ t.getMessage());
             }
         });
 
@@ -247,13 +253,13 @@ public class Interactor_HomeActivity implements Contract_HomeActivity.Interactor
                 if(response.isSuccessful()){
                     presenter.recibirAlbumABuscar(response.body());
                 }else{
-                    Log.d("Error","El codigo de error busquedaAlbums e es "+response.code());
+                    Log.d(context.getString(R.string.Error),context.getString(R.string.El_codigo_de_error_es)+response.code());
                 }
             }
 
             @Override
             public void onFailure(Call<ContainerAlbumSearch> call, Throwable t) {
-
+                Log.d(context.getString(R.string.Error),context.getString(R.string.El_mensaje_de_error_es)+ t.getMessage());
             }
         });
 
@@ -268,11 +274,13 @@ public class Interactor_HomeActivity implements Contract_HomeActivity.Interactor
             public void onResponse(Call<ContainerArtistSearch> call, Response<ContainerArtistSearch> response) {
                 if(response.isSuccessful()){
                     presenter.recibirArtistaABuscar(response.body());
+                }else{
+                    Log.d(context.getString(R.string.Error),context.getString(R.string.El_codigo_de_error_es)+response.code());
                 }
             }
             @Override
             public void onFailure(Call<ContainerArtistSearch> call, Throwable t) {
-
+                Log.d(context.getString(R.string.Error),context.getString(R.string.El_mensaje_de_error_es)+ t.getMessage());
             }
         });
 
@@ -283,9 +291,9 @@ public class Interactor_HomeActivity implements Contract_HomeActivity.Interactor
         List<Playlist> playlistList = new ArrayList<>();
         ContainerMisPlaylist containerMisPlaylist = new ContainerMisPlaylist();
                 FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference reference = database.getReference("Users")
+        DatabaseReference reference = database.getReference(Users)
                 .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
-                .child("myPlaylists");
+                .child(MyPlaylists);
         reference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -309,9 +317,9 @@ public class Interactor_HomeActivity implements Contract_HomeActivity.Interactor
     @Override
     public void guardarContainerMyPlaylist(ContainerMisPlaylist containerMisPlaylist) {
         FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference reference = database.getReference("Users")
+        DatabaseReference reference = database.getReference(Users)
                 .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
-                .child("myPlaylists");
+                .child(MyPlaylists);
         reference.setValue(containerMisPlaylist.getMiPlaylists())
                 .addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
@@ -330,9 +338,9 @@ public class Interactor_HomeActivity implements Contract_HomeActivity.Interactor
         List<FavTracks> favTrackstList = new ArrayList<>();
         ContainerTracksFav containerTracksFav = new ContainerTracksFav();
         FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference reference = database.getReference("Users")
+        DatabaseReference reference = database.getReference(Users)
                 .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
-                .child("favoriteTracks");
+                .child(TracksFavoritos);
         reference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -355,19 +363,17 @@ public class Interactor_HomeActivity implements Contract_HomeActivity.Interactor
     @Override
     public void guardarContainerFavTracks(ContainerTracksFav containerTracksFav) {
         FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference reference = database.getReference("Users")
+        DatabaseReference reference = database.getReference(Users)
                 .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
-                .child("favoriteTracks");
+                .child(TracksFavoritos);
         reference.setValue(containerTracksFav.getFavTracks())
                 .addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         if(task.isSuccessful()){
-                            presenter.recibirRsptaGuardadoPlaylist(true);
-
+                            Toast.makeText(context, context.getString(R.string.Cancion_agregada_eliminada_a_favoritos_exitosamente), Toast.LENGTH_SHORT).show();
                         }else{
-                            presenter.recibirRsptaGuardadoPlaylist(false);
-                            Toast.makeText(context, "Fallo al agregar cancion a favoritos", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(context, context.getString(R.string.Ocurrio_un_error), Toast.LENGTH_SHORT).show();
                         }
                     }
                 });

@@ -53,10 +53,6 @@ public class PlaylistRank implements Parcelable {
         return picture;
     }
 
-    public void setPicture(String picture) {
-        this.picture = picture;
-    }
-
     public String getTitle() {
         return title;
     }
@@ -75,9 +71,5 @@ public class PlaylistRank implements Parcelable {
 
     public String getLink() {
         return link;
-    }
-
-    public void setLink(String link) {
-        this.link = link;
     }
 }

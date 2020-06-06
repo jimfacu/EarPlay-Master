@@ -67,8 +67,4 @@ public class AlbumGenerico implements Parcelable {
     public String getCover_medium() {
         return cover_medium;
     }
-
-    public void setCover_medium(String cover_medium) {
-        this.cover_medium = cover_medium;
-    }
 }

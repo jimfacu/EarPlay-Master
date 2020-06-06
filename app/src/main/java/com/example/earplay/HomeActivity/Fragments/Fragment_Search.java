@@ -96,7 +96,7 @@ public class Fragment_Search extends Fragment implements Adapter_Albums_Search.A
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_fragment__search, container, false);
+        View view = inflater.inflate(R.layout.fragment_search, container, false);
         initViews(view);
         initAdapters(view);
         initSpinner();
@@ -135,7 +135,7 @@ public class Fragment_Search extends Fragment implements Adapter_Albums_Search.A
         recyclerViewAlbumsSearch.setLayoutManager(linearLayoutManager1);
         recyclerViewAlbumsSearch.setAdapter(adapterAlbumsSearch);
 
-        adapterArtistSearch = new Adapter_Artist_Search(this);
+        adapterArtistSearch = new Adapter_Artist_Search(getContext(),this);
         @SuppressLint("WrongConstant") LinearLayoutManager linearLayoutManager2 = new LinearLayoutManager(view.getContext(),LinearLayoutManager.VERTICAL,false);
         recyclerViewArtistSearch.setLayoutManager(linearLayoutManager2);
         recyclerViewArtistSearch.setAdapter(adapterArtistSearch);

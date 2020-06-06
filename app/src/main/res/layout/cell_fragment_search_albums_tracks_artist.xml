@@ -9,7 +9,6 @@
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:id="@+id/imageView_imageBandTrackAlbum"
-        android:src="@drawable/xd"
         android:layout_margin="@dimen/margin15"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"

@@ -69,27 +69,11 @@ public class Albums implements Parcelable {
         this.title = title;
     }
 
-    public String getCover_small() {
-        return cover_small;
-    }
-
-    public void setCover_small(String cover_small) {
-        this.cover_small = cover_small;
-    }
-
     public String getCover_medium() {
         return cover_medium;
     }
 
-    public void setCover_medium(String cover_medium) {
-        this.cover_medium = cover_medium;
-    }
-
     public String getRelease_date() {
         return release_date;
-    }
-
-    public void setRelease_date(String release_date) {
-        this.release_date = release_date;
     }
 }

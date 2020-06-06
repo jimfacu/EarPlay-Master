@@ -72,24 +72,12 @@ public class TrackGenerico implements Parcelable {
         return title_short;
     }
 
-    public void setTitle_short(String title_short) {
-        this.title_short = title_short;
-    }
-
     public String getPreview() {
         return preview;
     }
 
-    public void setPreview(String preview) {
-        this.preview = preview;
-    }
-
     public String getLink() {
         return link;
-    }
-
-    public void setLink(String link) {
-        this.link = link;
     }
 
     public ArtistGenerico getArtistGenerico() {

@@ -5,18 +5,18 @@ import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.content.Context;
 import android.os.Bundle;
-
-import androidx.appcompat.widget.AppCompatButton;
-import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.appcompat.widget.AppCompatButton;
+import androidx.cardview.widget.CardView;
+import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.earplay.HomeActivity.Adapters.Adapter_Album_AlbumProfile;
@@ -29,20 +29,16 @@ import com.example.earplay.HomeActivity.Entities.Genericos.AlbumGenerico;
 import com.example.earplay.HomeActivity.Entities.Genericos.ArtistGenerico;
 import com.example.earplay.HomeActivity.Entities.Genericos.TrackGenerico;
 import com.example.earplay.HomeActivity.Entities.MisPlaylist.ContainerMisPlaylist;
-import com.example.earplay.HomeActivity.Entities.MisPlaylist.Playlist;
-import com.example.earplay.HomeActivity.Entities.MisPlaylist.TracksDeMiPlaylist;
-import com.example.earplay.HomeActivity.Entities.TracksRank.Album;
-import com.example.earplay.HomeActivity.Entities.TracksRank.Track;
-import com.example.earplay.HomeActivity.Utils.InterfaceUtils;
 import com.example.earplay.R;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class Fragnent_AlbumProfile extends Fragment implements Adapter_Albums_AlbumProfile.CellListenerAlbumsProfile,Adapter_Album_AlbumProfile.ShowMyPlaylists
+public class Fragnent_AlbumProfile extends Fragment implements Adapter_Albums_AlbumProfile.CellListenerAlbumsProfile,Adapter_Album_AlbumProfile.ArtistProfileAdapter_Interface
                                                                 ,Adapter_MyPlaylistPopUp.PlaylistSelected{
 
     private static final String ListAlbumProfile ="listAlbumProfile";
@@ -57,21 +53,24 @@ public class Fragnent_AlbumProfile extends Fragment implements Adapter_Albums_Al
     private ContainerMisPlaylist containerMisPlaylist;
 
     private ImageView imageView_AlbumProfile;
+    private ImageView imageView_backHome;
     private TextView textView_cantidadDeCanciones;
     private TextView textView_NameAlbum;
-    private String urlImageAlbum;
-    private String titleAlbum;
+    private CardView cardView_random;
+
     private ArtistGenerico artist;
     private AlbumGenerico album;
     private int playlistActual=-1;
-    private Dialog myDialog;
-    private AppCompatButton btn_aceptAddTrackToPlaylist;
-    private AppCompatButton btn_cancelAddTrackToPlaylist;
+
 
     private RecyclerView recyclerView_TracksAlbumProfile;
     private Adapter_Album_AlbumProfile adapterAlbumProfile;
     private RecyclerView recyclerView_AlbumsAlbumProfile;
     private Adapter_Albums_AlbumProfile adapterAlbumsAlbumProfile;
+
+    private Dialog myDialog;
+    private AppCompatButton btn_aceptAddTrackToPlaylist;
+    private AppCompatButton btn_cancelAddTrackToPlaylist;
     private RecyclerView recyclerView_PopUpMyPlaylist;
     private Adapter_MyPlaylistPopUp adapterMyPlaylistPopUp;
 
@@ -102,9 +101,11 @@ public class Fragnent_AlbumProfile extends Fragment implements Adapter_Albums_Al
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_fragnent__album_profile, container, false);
+        View view = inflater.inflate(R.layout.fragment_album_profile, container, false);
         initViews(view);
         myDialog = new Dialog(getContext());
+        imageView_backHome.setOnClickListener(backToHomeListener);
+        cardView_random.setOnClickListener(randomTracksListener);
         Bundle bundle = getArguments();
         if(bundle != null) {
             containerAlbumProfile = bundle.getParcelable(ListAlbumProfile);
@@ -117,13 +118,24 @@ public class Fragnent_AlbumProfile extends Fragment implements Adapter_Albums_Al
             adapterAlbumProfile.insertAlbumProfile(containerAlbumProfile.getData());
             adapterAlbumsAlbumProfile.InsertAlbums(containerAlbums.getData());
         }
+        if(containerAlbumProfile != null) {
+            cardView_random.setOnClickListener(randomTracksListener);
+        }
+        imageView_backHome.setOnClickListener(backToHomeListener);
         return view;
     }
 
+    private View.OnClickListener backToHomeListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            albumProfileInterface.backToHome();
+        }
+    };
+
     private void loadInfoAlbumProfile(View view) {
-        Glide.with(view).load(urlImageAlbum).into(imageView_AlbumProfile);
-        textView_cantidadDeCanciones.setText(String.valueOf(containerAlbumProfile.getTotal()));
-        textView_NameAlbum.setText(titleAlbum);
+        Glide.with(view).load(album.getCover_medium()).into(imageView_AlbumProfile);
+        textView_cantidadDeCanciones.setText(String.valueOf(containerAlbumProfile.getTotal())+" "+getContext().getString(R.string.Canciones));
+        textView_NameAlbum.setText(album.getTitle());
     }
 
     private void initAdapter(View view) {
@@ -136,20 +148,17 @@ public class Fragnent_AlbumProfile extends Fragment implements Adapter_Albums_Al
         @SuppressLint("WrongConstant") LinearLayoutManager linearLayoutManager2 = new LinearLayoutManager(view.getContext(),LinearLayoutManager.VERTICAL,false);
         recyclerView_AlbumsAlbumProfile.setLayoutManager(linearLayoutManager2);
         recyclerView_AlbumsAlbumProfile.setAdapter(adapterAlbumsAlbumProfile);
-
-
     }
 
     private void initViews(View view) {
         imageView_AlbumProfile = view.findViewById(R.id.imageView_AlbumProfile);
         textView_cantidadDeCanciones = view.findViewById(R.id.textView_CantidadDeCanciones);
         textView_NameAlbum = view.findViewById(R.id.textView_NameAlbumProfile);
+        imageView_backHome = view.findViewById(R.id.back_FragmentAlbumProfile);
         myDialog = new Dialog(getContext());
         recyclerView_TracksAlbumProfile = view.findViewById(R.id.recycler_TracksAlbumProfile);
         recyclerView_AlbumsAlbumProfile = view.findViewById(R.id.recycler_AlbumsAlbumProfile);
-        recyclerView_PopUpMyPlaylist = view.findViewById(R.id.recyclerView_chosePlaylist);
-        btn_aceptAddTrackToPlaylist = view.findViewById(R.id.btn_AceptarAñadirTrack);
-        btn_cancelAddTrackToPlaylist = view.findViewById(R.id.btn_CancelarAñadirTrack);
+        cardView_random = view.findViewById(R.id.cardView_RandomAlbumProfile);
     }
 
 
@@ -169,6 +178,13 @@ public class Fragnent_AlbumProfile extends Fragment implements Adapter_Albums_Al
         recyclerView_PopUpMyPlaylist.setAdapter(adapterMyPlaylistPopUp);
         adapterMyPlaylistPopUp.insertMyPlaylist(containerMisPlaylist.getMiPlaylists());
 
+        btn_cancelAddTrackToPlaylist.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                myDialog.dismiss();
+            }
+        });
+
 
         btn_aceptAddTrackToPlaylist.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -184,15 +200,15 @@ public class Fragnent_AlbumProfile extends Fragment implements Adapter_Albums_Al
                     }
                     if (!checkTrack){
                         containerMisPlaylist.getMiPlaylists().get(playlistActual).getTracksDeMiPlaylists().add(tracksDeMiPlaylist);
-                        Toast.makeText(getContext(), "Cancion añadida Exitosamente !", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getContext(), getContext().getString(R.string.Cancion_añadida_Exitosamente), Toast.LENGTH_SHORT).show();
                     }else {
-                        Toast.makeText(getContext(), "Esta cancion ya se encuentra en esta playlist", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getContext(), getContext().getString(R.string.Esta_cancion_ya_se_encuentra_en_esta_playlist), Toast.LENGTH_SHORT).show();
                     }
                 }else{
                     List<TrackGenerico> tankTracksDeMiPlaylist = new ArrayList<>();
                     tankTracksDeMiPlaylist.add(tracksDeMiPlaylist);
                     containerMisPlaylist.getMiPlaylists().get(playlistActual).setTracksDeMiPlaylists(tankTracksDeMiPlaylist);
-                    Toast.makeText(getContext(), "Cancion añadida Exitosamente !", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getContext(), getContext().getString(R.string.Cancion_añadida_Exitosamente), Toast.LENGTH_SHORT).show();
                 }
                 albumProfileInterface.saveNewSongFromPlaylist(containerMisPlaylist);
                 myDialog.dismiss();
@@ -201,9 +217,30 @@ public class Fragnent_AlbumProfile extends Fragment implements Adapter_Albums_Al
         myDialog.show();
     }
 
+    private View.OnClickListener randomTracksListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            List<TrackGenerico> tankTrackGenericoList = new ArrayList<>();
+            List<TrackGenerico> trackGenericoList = new ArrayList<>();
+            for(TracksFromAlbumProfile track : containerAlbumProfile.getData()){
+                TrackGenerico trackGenerico = new TrackGenerico(Integer.parseInt(track.getId()),track.getTitle_short(),track.getPreview(),track.getLink()
+                        ,artist,album);
+                tankTrackGenericoList.add(trackGenerico);
+            }
+            Collections.shuffle(tankTrackGenericoList);
+            trackGenericoList.addAll(tankTrackGenericoList);
+            albumProfileInterface.playTrack(tankTrackGenericoList,0);
+        }
+    };
+
     @Override
     public void playTrack(List<TrackGenerico> trackGenericoList, int position) {
         albumProfileInterface.playTrack(trackGenericoList,position);
+    }
+
+    @Override
+    public void shareTrack(TracksFromAlbumProfile tracksFromAlbumProfile) {
+        albumProfileInterface.shareTrack(tracksFromAlbumProfile.getLink());
     }
 
     @Override
@@ -226,5 +263,7 @@ public class Fragnent_AlbumProfile extends Fragment implements Adapter_Albums_Al
         void goToAlbumFromAlbumProfile(AlbumGenerico albumGenerico);
         void saveNewSongFromPlaylist(ContainerMisPlaylist containerMisPlaylist);
         void playTrack(List<TrackGenerico> trackList ,int position);
+        void shareTrack(String s);
+        void backToHome();
     }
 }

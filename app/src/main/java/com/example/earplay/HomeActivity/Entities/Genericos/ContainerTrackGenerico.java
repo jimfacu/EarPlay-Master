@@ -39,11 +39,4 @@ public class ContainerTrackGenerico implements Parcelable {
         }
     };
 
-    public List<TrackGenerico> getTrackGenericosList() {
-        return trackGenericosList;
-    }
-
-    public void setTrackGenericosList(List<TrackGenerico> trackGenericosList) {
-        this.trackGenericosList = trackGenericosList;
-    }
 }

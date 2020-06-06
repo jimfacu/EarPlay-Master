@@ -69,15 +69,7 @@ public class ArtistSearch implements Parcelable {
         return picture_medium;
     }
 
-    public void setPicture_medium(String picture_medium) {
-        this.picture_medium = picture_medium;
-    }
-
     public String getPicture_big() {
         return picture_big;
-    }
-
-    public void setPicture_big(String picture_big) {
-        this.picture_big = picture_big;
     }
 }

@@ -11,8 +11,4 @@ public interface InterfaceUtils {
     interface ItemClickListener {
         void onClickItem(View view, int position);
     }
-
-    interface ShowMyPlaylists{
-        void goToShowMyPlaylists(TracksDeMiPlaylist tracksFromAlbumProfile);
-    }
 }

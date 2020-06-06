@@ -86,12 +86,11 @@ public class Adapter_MyPlaylist extends RecyclerView.Adapter {
                     if(playlistList.get(getAdapterPosition()).getTracksDeMiPlaylists() != null) {
                         playlistToAlbum.goToAlbumProfile(getAdapterPosition());
                     }else{
-                        Toast.makeText(context, "Playlist sin canciones ", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(context, context.getString(R.string.PlaylistVacia), Toast.LENGTH_SHORT).show();
                     }
                 }
             });
         }
-
         public void setPlaylist(Playlist playlist){
             if(playlist.getTracksDeMiPlaylists()!= null) {
                 Glide.with(itemView).load(playlist.getTracksDeMiPlaylists().get(playlist.getTracksDeMiPlaylists().size()-1).getAlbumGenerico().getCover_medium()).into(imageView_Playlist);
@@ -102,8 +101,6 @@ public class Adapter_MyPlaylist extends RecyclerView.Adapter {
 
 
     public interface PlaylistToAlbum{
-        //pasamos la posicion de la playlist seleccionada
         void goToAlbumProfile(int position);
     }
-
 }

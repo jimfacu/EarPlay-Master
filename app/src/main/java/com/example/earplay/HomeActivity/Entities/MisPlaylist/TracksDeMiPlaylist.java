@@ -65,23 +65,7 @@ public class TracksDeMiPlaylist implements Parcelable {
         return preview;
     }
 
-    public void setPreview(String preview) {
-        this.preview = preview;
-    }
-
-    public String getShare() {
-        return share;
-    }
-
-    public void setShare(String share) {
-        this.share = share;
-    }
-
     public String getTitle_short() {
         return title_short;
-    }
-
-    public void setTitle_short(String title_short) {
-        this.title_short = title_short;
     }
 }

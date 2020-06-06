@@ -21,28 +21,6 @@
             android:layout_marginBottom="@dimen/margin15">
 
             <TextView
-                android:id="@+id/textView_MisPlaylist"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/margin15"
-                android:layout_marginTop="@dimen/marginTop30"
-                android:text="Mis Playlist"
-                android:textColor="@color/Blanco"
-                android:textSize="@dimen/textSize35"
-                android:textStyle="bold"
-                app:layout_constraintBottom_toTopOf="@id/recycler_MisPlaylist"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/recycler_MisPlaylist"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="@dimen/margin15"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/textView_MisPlaylist" />
-
-            <TextView
                 android:id="@+id/textView_Rompiendola"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -53,7 +31,7 @@
                 android:textSize="@dimen/textSize35"
                 android:textStyle="bold"
                 app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/recycler_MisPlaylist" />
+                app:layout_constraintTop_toTopOf="parent"/>
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recycler_Tracks"
@@ -92,7 +70,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="@dimen/margin15"
-                android:layout_marginTop="@dimen/marginTop20"
+                android:layout_marginTop="@dimen/marginTop10"
                 android:text="Tendendencias"
                 android:textColor="@color/Blanco"
                 android:textSize="@dimen/textSize25"

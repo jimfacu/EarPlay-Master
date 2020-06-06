@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.PopupMenu;
 import android.widget.TextView;
 
@@ -76,14 +77,14 @@ public class Adapter_Tracks_PlaylistProfile extends RecyclerView.Adapter {
         private TextView textView_numberSong;
         private TextView textView_nameSong;
         private TextView textView_nameArtist;
-        private TextView textView_options;
+        private ImageButton imageButton_options;
 
         public PlaylistProfileViewHolder(@NonNull View itemView) {
             super(itemView);
             textView_numberSong = itemView.findViewById(R.id.textView_numberSongPlaylistProfile);
             textView_nameSong = itemView.findViewById(R.id.textView_nameSongProfilePlaylist);
             textView_nameArtist = itemView.findViewById(R.id.textView_nameBandPlaylistProfile);
-            textView_options = itemView.findViewById(R.id.textView_Options);
+            imageButton_options = itemView.findViewById(R.id.imageButton_config_PlaylistProfile);
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -105,10 +106,10 @@ public class Adapter_Tracks_PlaylistProfile extends RecyclerView.Adapter {
             textView_numberSong.setText(String.valueOf(getAdapterPosition()+1));
             textView_nameSong.setText(tracksPlaylist.getTitle());
             textView_nameArtist.setText(tracksPlaylist.getArtist().getName());
-            textView_options.setOnClickListener(new View.OnClickListener() {
+            imageButton_options.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    PopupMenu popupMenu = new PopupMenu(context,textView_options);
+                    PopupMenu popupMenu = new PopupMenu(context,imageButton_options);
                     popupMenu.inflate(R.menu.menu_options_tracks);
                     popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                         @Override
@@ -126,12 +127,12 @@ public class Adapter_Tracks_PlaylistProfile extends RecyclerView.Adapter {
                                     break;
 
                                 case R.id.shareTrack:
+                                    showPlaylists.shareTrack(tracksPlaylist);
                                     break;
 
                                 default:
                                     break;
                             }
-
                             return false;
                         }
                     });
@@ -143,5 +144,6 @@ public class Adapter_Tracks_PlaylistProfile extends RecyclerView.Adapter {
     public interface ShowPlaylists{
         void goToMyPlaylists(TrackGenerico track);
         void playTrack(List<TrackGenerico> trackList,int position);
+        void shareTrack(Track trackGenerico);
     }
     }

@@ -4,13 +4,15 @@
     android:orientation="vertical"
     android:layout_width="350dp"
     android:layout_height="600dp"
-    android:layout_gravity="center">
+    android:layout_gravity="center"
+    android:background="@color/Blanco">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/textView_ElegeirPlaylist"
         android:text="Elegir Playlist"
+        android:textColor="@color/Negro"
         android:textSize="@dimen/textSize30"
         android:textStyle="bold"
         android:layout_margin="@dimen/margin15"
@@ -30,7 +32,7 @@
         android:id="@+id/btn_CancelarAñadirTrack"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@color/colorPrimary"
+        android:background="@color/AleatorioColor"
         android:text="Cancelar"
         android:layout_marginBottom="@dimen/marginTop20"
         android:layout_marginHorizontal="@dimen/margin15"
@@ -42,7 +44,7 @@
         android:id="@+id/btn_AceptarAñadirTrack"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@color/colorPrimary"
+        android:background="@color/AleatorioColor"
         android:text="Aceptar"
         android:layout_marginBottom="@dimen/marginTop20"
         android:layout_marginHorizontal="@dimen/margin15"

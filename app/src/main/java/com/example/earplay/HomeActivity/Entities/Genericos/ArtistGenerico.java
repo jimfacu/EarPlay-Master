@@ -72,8 +72,4 @@ public class ArtistGenerico implements Parcelable {
     public String getPicture_big() {
         return picture_big;
     }
-
-    public void setPicture_big(String picture_big) {
-        this.picture_big = picture_big;
-    }
 }

@@ -3,7 +3,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/Negro">
 
     <TextView
         android:layout_width="wrap_content"
@@ -52,19 +53,22 @@
         android:id="@+id/btn_login"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/Negro"
+        android:background="@color/Blanco"
+        android:textColor="@color/Negro"
         android:text="Login"
         android:layout_marginTop="@dimen/marginTop20"
         android:layout_marginHorizontal="@dimen/marginTop20"
         app:layout_constraintTop_toBottomOf="@id/textInputLayout_contraseña"/>
 
-    <TextView android:id="@+id/link_register"
+    <TextView
+        android:id="@+id/link_register"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="24dp"
-        android:text="no tenes cuenta ? Create una !!"
+        android:text="no tenes cuenta,Create una presionando aqui !!"
+        android:textColor="@color/Blanco"
         android:gravity="center"
-        android:textSize="@dimen/textSize20"
+        android:textSize="@dimen/textSize15"
         android:layout_marginTop="@dimen/marginTop20"
         app:layout_constraintTop_toBottomOf="@id/btn_login"
         app:layout_constraintLeft_toLeftOf="parent"/>
