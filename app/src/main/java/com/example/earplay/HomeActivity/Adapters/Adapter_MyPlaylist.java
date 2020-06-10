@@ -12,9 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-import com.example.earplay.HomeActivity.Entities.Genericos.TrackGenerico;
-import com.example.earplay.HomeActivity.Entities.MisPlaylist.Playlist;
-import com.example.earplay.HomeActivity.Entities.MisPlaylist.TracksDeMiPlaylist;
+import com.example.earplay.Core.Entities.MisPlaylist.Playlist;
 import com.example.earplay.R;
 
 import java.util.ArrayList;

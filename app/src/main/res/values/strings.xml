@@ -62,4 +62,31 @@
 
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="defaultNotification">DefaultNotification</string>
+
+    //Mensaje de errores
+    <string name="ErrorArtistasRankeados">Error al recibir lista de artistas rankeados</string>
+    <string name="ErrorRetrofitArtistasRankeados">Fallo con Retrofit Artistas Rankeados</string>
+    <string name="Error_Canciones_Rankeadas">Error al recibir lista de canciones rankeadas</string>
+    <string name="Error_Retrofit_Canciones_Rankeadas">Error Retrofit Cacnciones Rankeadas</string>
+    <string name="Error_Playlist_Rankeadas">Error al recibir lista de playlist rankeadas</string>
+    <string name="Error_Retrofit_PlaylistRank">Error Retrofrit Playlist Rankeadas</string>
+    <string name="Error_Canciones_Artista">Error al Recibir Canciones de Artista</string>
+    <string name="Error_Retrofit_CancionesArtista">Error con Retrofit Canciones de Artista</string>
+    <string name="Error_AlbumsArtistas">\"Error al Recibir Albums de Artista \"</string>
+    <string name="Error_Retrofit_AlbumsArtista">Error con Retrofit Albums de Artista</string>
+    <string name="Error_AlbumProfile">Error al recibir Album</string>
+    <string name="Error_Retrofit_AlbumProfile">Error con Retrofit Album Profile</string>
+    <string name="Error_Albums">Error al recibir lista de albums</string>
+    <string name="Error_Retrofit_Albums">Error con Retrofit Lista de albums</string>
+    <string name="Error_CancionesdePlaylist">Error al recibir canciones de una Playlist</string>
+    <string name="Error_Retrofit_CancionesPlaylist">Error con Retrofit canciones de Playlist</string>
+    <string name="Error_CancionesSearch">Error al recibir lista de canciones Search</string>
+    <string name="Error_Retrofit_CancionesSearch">Error con Retrofit Canciones Search</string>
+    <string name="Error_AlbumsSearch">Error al recibir Albums Search</string>
+    <string name="Error_Retrofit_AlbumsSearch">Error con Retrofit Albums Search</string>
+    <string name="Error_ArtistaSearch">\"Error al recibir Lista de Artistas Search \"</string>
+    <string name="Error_Retrofit_ArtistasSearch">Error con Retrofit Artistas Search</string>
+    <string name="Error_Firebase_MisPlaylist">Error con Firebase Mis Playlist</string>
+    <string name="Error_Firebase_CancionesFavoritas">Error con Firebase Canciones Favoritas</string>
+    <string name="Error_Firebase_GuardarCancionesFavoritas">Error con Firebase gurdar Canciones Favoritas</string>
 </resources>

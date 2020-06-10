@@ -23,15 +23,12 @@ import android.widget.PopupMenu;
 import android.widget.Toast;
 
 import com.example.earplay.HomeActivity.Adapters.Adapter_MyPlaylist;
-import com.example.earplay.HomeActivity.Entities.Genericos.AlbumGenerico;
-import com.example.earplay.HomeActivity.Entities.Genericos.ArtistGenerico;
-import com.example.earplay.HomeActivity.Entities.Genericos.ContainerTracksFav;
-import com.example.earplay.HomeActivity.Entities.Genericos.FavTracks;
-import com.example.earplay.HomeActivity.Entities.Genericos.TrackGenerico;
-import com.example.earplay.HomeActivity.Entities.MisPlaylist.ContainerMisPlaylist;
-import com.example.earplay.HomeActivity.Entities.MisPlaylist.Playlist;
+import com.example.earplay.Core.Entities.Genericos.ContainerTracksFav;
+import com.example.earplay.Core.Entities.Genericos.FavTracks;
+import com.example.earplay.Core.Entities.Genericos.TrackGenerico;
+import com.example.earplay.Core.Entities.MisPlaylist.ContainerMisPlaylist;
+import com.example.earplay.Core.Entities.MisPlaylist.Playlist;
 import com.example.earplay.R;
-import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -23,9 +23,9 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.bumptech.glide.Glide;
-import com.example.earplay.HomeActivity.Entities.Genericos.ContainerTracksFav;
-import com.example.earplay.HomeActivity.Entities.Genericos.FavTracks;
-import com.example.earplay.HomeActivity.Entities.Genericos.TrackGenerico;
+import com.example.earplay.Core.Entities.Genericos.ContainerTracksFav;
+import com.example.earplay.Core.Entities.Genericos.FavTracks;
+import com.example.earplay.Core.Entities.Genericos.TrackGenerico;
 import com.example.earplay.HomeActivity.Utils.Constants;
 import com.example.earplay.R;
 

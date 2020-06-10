@@ -1,19 +1,15 @@
 package com.example.earplay.HomeActivity;
 
-import com.example.earplay.HomeActivity.Entities.AlbumProfile.ContainerAlbumProfile;
-import com.example.earplay.HomeActivity.Entities.AlbumSearch.ContainerAlbumSearch;
-import com.example.earplay.HomeActivity.Entities.AlbumsArtist.ContainerAlbums;
-import com.example.earplay.HomeActivity.Entities.ArtistRank.ContainerArtistRank;
-import com.example.earplay.HomeActivity.Entities.ArtistSearch.ContainerArtistSearch;
-import com.example.earplay.HomeActivity.Entities.Genericos.ContainerTracksFav;
-import com.example.earplay.HomeActivity.Entities.Genericos.TrackGenerico;
-import com.example.earplay.HomeActivity.Entities.MisPlaylist.ContainerMisPlaylist;
-import com.example.earplay.HomeActivity.Entities.MisPlaylist.Playlist;
-import com.example.earplay.HomeActivity.Entities.PlaylistProfile.ContainerPlaylistProfile;
-import com.example.earplay.HomeActivity.Entities.PlaylistRank.ContainerPlaylistRank;
-import com.example.earplay.HomeActivity.Entities.TracksRank.ContainerTracksRank;
-
-import java.util.List;
+import com.example.earplay.Core.Entities.AlbumProfile.ContainerAlbumProfile;
+import com.example.earplay.Core.Entities.AlbumSearch.ContainerAlbumSearch;
+import com.example.earplay.Core.Entities.AlbumsArtist.ContainerAlbums;
+import com.example.earplay.Core.Entities.ArtistRank.ContainerArtistRank;
+import com.example.earplay.Core.Entities.ArtistSearch.ContainerArtistSearch;
+import com.example.earplay.Core.Entities.Genericos.ContainerTracksFav;
+import com.example.earplay.Core.Entities.MisPlaylist.ContainerMisPlaylist;
+import com.example.earplay.Core.Entities.PlaylistProfile.ContainerPlaylistProfile;
+import com.example.earplay.Core.Entities.PlaylistRank.ContainerPlaylistRank;
+import com.example.earplay.Core.Entities.TracksRank.ContainerTracksRank;
 
 
 public interface Contract_HomeActivity {
@@ -35,6 +31,12 @@ public interface Contract_HomeActivity {
         //FavTracks
         void mostrarMisPlaylist(ContainerMisPlaylist containerMisPlaylist);
         void mostrarMisTracksFav(ContainerTracksFav containerTracksFav);
+
+        //Mensajes a mostrar
+        void mostrarMensajeDeError(String s);
+        void mostrarMensajeDeActualizacion(String s);
+        void mostrarMensajeSinInternet();
+
     }
 
     interface Presenter{
@@ -52,7 +54,7 @@ public interface Contract_HomeActivity {
         void recibirAlbumProfile(ContainerAlbumProfile containerAlbumProfile);
         void pedirAlbumsAlbumProfile(int id);
         void recibirAlbumsAlbumProfile(ContainerAlbums containerAlbums);
-        void pedirTracksPlaylistProfile(int id);
+        void pedirTracksPlaylistProfile(long id);
         void recibirPlaylistProfileTracks(ContainerPlaylistProfile containerPlaylistProfile);
 
         //Busquedas
@@ -71,6 +73,10 @@ public interface Contract_HomeActivity {
         void recibirRsptaGuardadoPlaylist(boolean guardado);
         void recibirListaDeFavTracks(ContainerTracksFav containerTracksFav);
         void recibirListaConNuevoTrack(ContainerTracksFav containerTracksFav);
+
+        //Mensajes
+        void recibirMensajeDeError(String s);
+        void recibirMensajeDeActualizacion(String s);
     }
 
     interface Interactor{
@@ -81,7 +87,7 @@ public interface Contract_HomeActivity {
         void pedirAlbumArtist(int id);
         void pedirAlbumProfile(int id);
         void pedirAlbumsAlbumProfile(int id);
-        void pedirPlaylistProfileTracks(int id);
+        void pedirPlaylistProfileTracks(long id);
 
         //Busquedas
         void pedirTrackABuscar(String s);
@@ -93,19 +99,19 @@ public interface Contract_HomeActivity {
         void guardarContainerMyPlaylist(ContainerMisPlaylist containerMisPlaylist);
         void pedirContainerFavTracks();
         void guardarContainerFavTracks(ContainerTracksFav containerTracksFav);
-        }
+    }
 
-        interface FavTrack{
-            void pedirTrackReproductor();
-            void borrarTrackFavTrack();
-            void refreshPositionFromDeleteMyPlaylist();
-            void cargarListaFavTrackReproductor(ContainerTracksFav containerTracksFav);
-            void playPause();
-        }
+    interface FavTrack{
+        void pedirTrackReproductor();
+        void borrarTrackFavTrack();
+        void refreshPositionFromDeleteMyPlaylist();
+        void cargarListaFavTrackReproductor(ContainerTracksFav containerTracksFav);
+        void playPause();
+    }
 
-        interface Refresh{
-            void refreshListFavTracks(ContainerTracksFav containerTracksFav);
-            void refreshListPlayList(ContainerMisPlaylist containerMisPlaylist);
+    interface Refresh{
+        void refreshListFavTracks(ContainerTracksFav containerTracksFav);
+        void refreshListPlayList(ContainerMisPlaylist containerMisPlaylist);
     }
 
 }

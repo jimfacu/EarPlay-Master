@@ -1,6 +1,6 @@
 package com.example.earplay.DetailActivity;
 
-import com.example.earplay.HomeActivity.Entities.Genericos.ContainerTracksFav;
+import com.example.earplay.Core.Entities.Genericos.ContainerTracksFav;
 
 public interface Contract_DetailActivity {
 

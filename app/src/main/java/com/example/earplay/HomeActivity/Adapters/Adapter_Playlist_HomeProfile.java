@@ -8,11 +8,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-import com.example.earplay.HomeActivity.Entities.PlaylistRank.PlaylistRank;
+import com.example.earplay.Core.Entities.PlaylistRank.PlaylistRank;
 import com.example.earplay.R;
 
 import java.util.ArrayList;
@@ -77,7 +76,7 @@ public class Adapter_Playlist_HomeProfile extends RecyclerView.Adapter {
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    cellListenerPlaylistRank.goToPlaylist(Integer.parseInt(playlistRanksList.get(getAdapterPosition()).getId()));
+                    cellListenerPlaylistRank.goToPlaylist(Long.parseLong(playlistRanksList.get(getAdapterPosition()).getId()));
                 }
             });
         }
@@ -89,6 +88,6 @@ public class Adapter_Playlist_HomeProfile extends RecyclerView.Adapter {
     }
 
     public interface CellListenerPlaylistRank{
-        void goToPlaylist(int id);
+        void goToPlaylist(long id);
         }
     }

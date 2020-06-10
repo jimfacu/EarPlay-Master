@@ -1,13 +1,13 @@
 package com.example.earplay.HomeActivity.Utils;
 
-import com.example.earplay.HomeActivity.Entities.AlbumProfile.ContainerAlbumProfile;
-import com.example.earplay.HomeActivity.Entities.AlbumSearch.ContainerAlbumSearch;
-import com.example.earplay.HomeActivity.Entities.AlbumsArtist.ContainerAlbums;
-import com.example.earplay.HomeActivity.Entities.ArtistRank.ContainerArtistRank;
-import com.example.earplay.HomeActivity.Entities.ArtistSearch.ContainerArtistSearch;
-import com.example.earplay.HomeActivity.Entities.PlaylistProfile.ContainerPlaylistProfile;
-import com.example.earplay.HomeActivity.Entities.PlaylistRank.ContainerPlaylistRank;
-import com.example.earplay.HomeActivity.Entities.TracksRank.ContainerTracksRank;
+import com.example.earplay.Core.Entities.AlbumProfile.ContainerAlbumProfile;
+import com.example.earplay.Core.Entities.AlbumSearch.ContainerAlbumSearch;
+import com.example.earplay.Core.Entities.AlbumsArtist.ContainerAlbums;
+import com.example.earplay.Core.Entities.ArtistRank.ContainerArtistRank;
+import com.example.earplay.Core.Entities.ArtistSearch.ContainerArtistSearch;
+import com.example.earplay.Core.Entities.PlaylistProfile.ContainerPlaylistProfile;
+import com.example.earplay.Core.Entities.PlaylistRank.ContainerPlaylistRank;
+import com.example.earplay.Core.Entities.TracksRank.ContainerTracksRank;
 
 
 
@@ -37,7 +37,7 @@ public interface ServiceApi_HomeActivity {
     Call<ContainerAlbumProfile> getAlbumProfile(@Path("id")int id);
 
     @GET("https://api.deezer.com/playlist/{id}")
-    Call<ContainerPlaylistProfile> getPlaylistProfileTracks(@Path("id")int id);
+    Call<ContainerPlaylistProfile> getPlaylistProfileTracks(@Path("id")long id);
 
     @GET("https://api.deezer.com/search/album")
     Call<ContainerAlbumSearch> getAlbumsSearch(@Query("q")String nameAlbum);

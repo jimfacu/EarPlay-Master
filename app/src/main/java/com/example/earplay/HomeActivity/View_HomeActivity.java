@@ -17,22 +17,22 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.example.earplay.DetailActivity.View_DetailActivity;
-import com.example.earplay.HomeActivity.Entities.AlbumProfile.ContainerAlbumProfile;
-import com.example.earplay.HomeActivity.Entities.AlbumSearch.ContainerAlbumSearch;
-import com.example.earplay.HomeActivity.Entities.AlbumsArtist.ContainerAlbums;
-import com.example.earplay.HomeActivity.Entities.ArtistRank.ContainerArtistRank;
-import com.example.earplay.HomeActivity.Entities.ArtistSearch.ContainerArtistSearch;
-import com.example.earplay.HomeActivity.Entities.Genericos.AlbumGenerico;
-import com.example.earplay.HomeActivity.Entities.Genericos.ArtistGenerico;
-import com.example.earplay.HomeActivity.Entities.Genericos.ContainerTracksFav;
-import com.example.earplay.HomeActivity.Entities.Genericos.FavTracks;
-import com.example.earplay.HomeActivity.Entities.Genericos.TrackGenerico;
-import com.example.earplay.HomeActivity.Entities.MisPlaylist.ContainerMisPlaylist;
-import com.example.earplay.HomeActivity.Entities.MisPlaylist.Playlist;
-import com.example.earplay.HomeActivity.Entities.PlaylistProfile.ContainerPlaylistProfile;
-import com.example.earplay.HomeActivity.Entities.PlaylistRank.ContainerPlaylistRank;
-import com.example.earplay.HomeActivity.Entities.TracksRank.Album;
-import com.example.earplay.HomeActivity.Entities.TracksRank.ContainerTracksRank;
+import com.example.earplay.Core.Entities.AlbumProfile.ContainerAlbumProfile;
+import com.example.earplay.Core.Entities.AlbumSearch.ContainerAlbumSearch;
+import com.example.earplay.Core.Entities.AlbumsArtist.ContainerAlbums;
+import com.example.earplay.Core.Entities.ArtistRank.ContainerArtistRank;
+import com.example.earplay.Core.Entities.ArtistSearch.ContainerArtistSearch;
+import com.example.earplay.Core.Entities.Genericos.AlbumGenerico;
+import com.example.earplay.Core.Entities.Genericos.ArtistGenerico;
+import com.example.earplay.Core.Entities.Genericos.ContainerTracksFav;
+import com.example.earplay.Core.Entities.Genericos.FavTracks;
+import com.example.earplay.Core.Entities.Genericos.TrackGenerico;
+import com.example.earplay.Core.Entities.MisPlaylist.ContainerMisPlaylist;
+import com.example.earplay.Core.Entities.MisPlaylist.Playlist;
+import com.example.earplay.Core.Entities.PlaylistProfile.ContainerPlaylistProfile;
+import com.example.earplay.Core.Entities.PlaylistRank.ContainerPlaylistRank;
+import com.example.earplay.Core.Entities.TracksRank.Album;
+import com.example.earplay.Core.Entities.TracksRank.ContainerTracksRank;
 import com.example.earplay.HomeActivity.Fragments.Fragment_Home;
 import com.example.earplay.HomeActivity.Fragments.Fragment_MyPlaylist;
 import com.example.earplay.HomeActivity.Fragments.Fragment_PlaylistProfile;
@@ -410,7 +410,7 @@ public class View_HomeActivity extends AppCompatActivity implements Contract_Hom
     };
 
     @Override
-    public void goToPlaylistRank(int id) {
+    public void goToPlaylistRank(long id) {
         presenter.pedirTracksPlaylistProfile(id);
     }
 
@@ -541,4 +541,22 @@ public class View_HomeActivity extends AppCompatActivity implements Contract_Hom
             }
         }
     }
+
+    @Override
+    public void mostrarMensajeDeError(String s) {
+        Toast.makeText(this, s, Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void mostrarMensajeDeActualizacion(String s) {
+        Toast.makeText(this, s, Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void mostrarMensajeSinInternet() {
+        Toast.makeText(this, getString(R.string.PorFavor_Conectarse_A_Internet), Toast.LENGTH_SHORT).show();
+    }
+
+
+
 }

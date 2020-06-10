@@ -11,12 +11,10 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-import com.example.earplay.HomeActivity.Entities.AlbumSearch.AlbumsSearch;
-import com.example.earplay.HomeActivity.Entities.Genericos.ArtistGenerico;
-import com.example.earplay.HomeActivity.Entities.TracksRank.Album;
+import com.example.earplay.Core.Entities.AlbumSearch.AlbumsSearch;
+import com.example.earplay.Core.Entities.Genericos.ArtistGenerico;
+import com.example.earplay.Core.Entities.TracksRank.Album;
 import com.example.earplay.R;
-
-import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 import java.util.List;

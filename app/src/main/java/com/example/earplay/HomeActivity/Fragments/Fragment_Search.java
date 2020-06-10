@@ -21,12 +21,12 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.earplay.HomeActivity.Adapters.Adapter_Albums_Search;
 import com.example.earplay.HomeActivity.Adapters.Adapter_Artist_Search;
 import com.example.earplay.HomeActivity.Adapters.Adapter_Tracks_Search;
-import com.example.earplay.HomeActivity.Entities.AlbumSearch.ContainerAlbumSearch;
-import com.example.earplay.HomeActivity.Entities.ArtistSearch.ContainerArtistSearch;
-import com.example.earplay.HomeActivity.Entities.Genericos.ArtistGenerico;
-import com.example.earplay.HomeActivity.Entities.Genericos.TrackGenerico;
-import com.example.earplay.HomeActivity.Entities.TracksRank.Album;
-import com.example.earplay.HomeActivity.Entities.TracksRank.ContainerTracksRank;
+import com.example.earplay.Core.Entities.AlbumSearch.ContainerAlbumSearch;
+import com.example.earplay.Core.Entities.ArtistSearch.ContainerArtistSearch;
+import com.example.earplay.Core.Entities.Genericos.ArtistGenerico;
+import com.example.earplay.Core.Entities.Genericos.TrackGenerico;
+import com.example.earplay.Core.Entities.TracksRank.Album;
+import com.example.earplay.Core.Entities.TracksRank.ContainerTracksRank;
 import com.example.earplay.R;
 
 import java.util.List;

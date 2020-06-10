@@ -1,29 +1,21 @@
 package com.example.earplay.HomeActivity.Adapters;
 
 import android.content.Context;
-import android.content.Intent;
-import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
-import android.widget.ImageView;
 import android.widget.PopupMenu;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.earplay.HomeActivity.Entities.Genericos.AlbumGenerico;
-import com.example.earplay.HomeActivity.Entities.Genericos.ArtistGenerico;
-import com.example.earplay.HomeActivity.Entities.Genericos.TrackGenerico;
-import com.example.earplay.HomeActivity.Entities.MisPlaylist.TracksDeMiPlaylist;
-import com.example.earplay.HomeActivity.Entities.TracksRank.Album;
-import com.example.earplay.HomeActivity.Entities.TracksRank.Artist;
-import com.example.earplay.HomeActivity.Entities.TracksRank.Track;
-import com.example.earplay.HomeActivity.Utils.InterfaceUtils;
+import com.example.earplay.Core.Entities.Genericos.AlbumGenerico;
+import com.example.earplay.Core.Entities.Genericos.ArtistGenerico;
+import com.example.earplay.Core.Entities.Genericos.TrackGenerico;
+import com.example.earplay.Core.Entities.TracksRank.Track;
 import com.example.earplay.R;
 
 import java.util.ArrayList;

@@ -15,14 +15,14 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.earplay.HomeActivity.Adapters.Adapter_Artistas_HomeProfile;
 import com.example.earplay.HomeActivity.Adapters.Adapter_Playlist_HomeProfile;
 import com.example.earplay.HomeActivity.Adapters.Adapter_Tracks_HomeProfile;
-import com.example.earplay.HomeActivity.Entities.ArtistRank.ContainerArtistRank;
-import com.example.earplay.HomeActivity.Entities.Genericos.AlbumGenerico;
-import com.example.earplay.HomeActivity.Entities.Genericos.ArtistGenerico;
-import com.example.earplay.HomeActivity.Entities.Genericos.TrackGenerico;
-import com.example.earplay.HomeActivity.Entities.PlaylistRank.ContainerPlaylistRank;
-import com.example.earplay.HomeActivity.Entities.TracksRank.Album;
-import com.example.earplay.HomeActivity.Entities.TracksRank.ContainerTracksRank;
-import com.example.earplay.HomeActivity.Entities.TracksRank.Track;
+import com.example.earplay.Core.Entities.ArtistRank.ContainerArtistRank;
+import com.example.earplay.Core.Entities.Genericos.AlbumGenerico;
+import com.example.earplay.Core.Entities.Genericos.ArtistGenerico;
+import com.example.earplay.Core.Entities.Genericos.TrackGenerico;
+import com.example.earplay.Core.Entities.PlaylistRank.ContainerPlaylistRank;
+import com.example.earplay.Core.Entities.TracksRank.Album;
+import com.example.earplay.Core.Entities.TracksRank.ContainerTracksRank;
+import com.example.earplay.Core.Entities.TracksRank.Track;
 import com.example.earplay.HomeActivity.Utils.Constants;
 import com.example.earplay.R;
 
@@ -133,7 +133,7 @@ public class Fragment_Home extends Fragment implements Adapter_Tracks_HomeProfil
     }
 
     @Override
-    public void goToPlaylist(int id) {
+    public void goToPlaylist(long id) {
         artistProfile.goToPlaylistRank(id);
     }
 
@@ -146,6 +146,6 @@ public class Fragment_Home extends Fragment implements Adapter_Tracks_HomeProfil
         void goToArtistProfile(ArtistGenerico artist);
         void playTrack(List<TrackGenerico> trackList, int position);
         void goToAlbumProfile(Album album,ArtistGenerico artist);
-        void goToPlaylistRank(int id);
+        void goToPlaylistRank(long id);
     }
 }

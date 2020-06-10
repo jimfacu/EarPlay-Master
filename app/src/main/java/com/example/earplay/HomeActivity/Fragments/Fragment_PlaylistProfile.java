@@ -21,12 +21,12 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.example.earplay.HomeActivity.Adapters.Adapter_MyPlaylistPopUp;
 import com.example.earplay.HomeActivity.Adapters.Adapter_Tracks_PlaylistProfile;
-import com.example.earplay.HomeActivity.Entities.Genericos.AlbumGenerico;
-import com.example.earplay.HomeActivity.Entities.Genericos.ArtistGenerico;
-import com.example.earplay.HomeActivity.Entities.Genericos.TrackGenerico;
-import com.example.earplay.HomeActivity.Entities.MisPlaylist.ContainerMisPlaylist;
-import com.example.earplay.HomeActivity.Entities.PlaylistProfile.ContainerPlaylistProfile;
-import com.example.earplay.HomeActivity.Entities.TracksRank.Track;
+import com.example.earplay.Core.Entities.Genericos.AlbumGenerico;
+import com.example.earplay.Core.Entities.Genericos.ArtistGenerico;
+import com.example.earplay.Core.Entities.Genericos.TrackGenerico;
+import com.example.earplay.Core.Entities.MisPlaylist.ContainerMisPlaylist;
+import com.example.earplay.Core.Entities.PlaylistProfile.ContainerPlaylistProfile;
+import com.example.earplay.Core.Entities.TracksRank.Track;
 import com.example.earplay.R;
 
 import java.util.ArrayList;

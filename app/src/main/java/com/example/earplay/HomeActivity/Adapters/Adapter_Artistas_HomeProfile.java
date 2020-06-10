@@ -10,8 +10,8 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-import com.example.earplay.HomeActivity.Entities.ArtistRank.Artist;
-import com.example.earplay.HomeActivity.Entities.Genericos.ArtistGenerico;
+import com.example.earplay.Core.Entities.ArtistRank.Artist;
+import com.example.earplay.Core.Entities.Genericos.ArtistGenerico;
 import com.example.earplay.R;
 
 import java.util.ArrayList;

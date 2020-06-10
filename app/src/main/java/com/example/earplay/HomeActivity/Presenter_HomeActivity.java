@@ -1,24 +1,18 @@
 package com.example.earplay.HomeActivity;
 
 import android.content.Context;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
-import android.widget.Toast;
 
-import com.example.earplay.HomeActivity.Entities.AlbumProfile.ContainerAlbumProfile;
-import com.example.earplay.HomeActivity.Entities.AlbumSearch.ContainerAlbumSearch;
-import com.example.earplay.HomeActivity.Entities.AlbumsArtist.ContainerAlbums;
-import com.example.earplay.HomeActivity.Entities.ArtistRank.ContainerArtistRank;
-import com.example.earplay.HomeActivity.Entities.ArtistSearch.ContainerArtistSearch;
-import com.example.earplay.HomeActivity.Entities.Genericos.ContainerTracksFav;
-import com.example.earplay.HomeActivity.Entities.MisPlaylist.ContainerMisPlaylist;
-import com.example.earplay.HomeActivity.Entities.MisPlaylist.Playlist;
-import com.example.earplay.HomeActivity.Entities.PlaylistProfile.ContainerPlaylistProfile;
-import com.example.earplay.HomeActivity.Entities.PlaylistRank.ContainerPlaylistRank;
-import com.example.earplay.HomeActivity.Entities.TracksRank.ContainerTracksRank;
-import com.example.earplay.R;
-
-import java.util.List;
+import com.example.earplay.Core.Entities.AlbumProfile.ContainerAlbumProfile;
+import com.example.earplay.Core.Entities.AlbumSearch.ContainerAlbumSearch;
+import com.example.earplay.Core.Entities.AlbumsArtist.ContainerAlbums;
+import com.example.earplay.Core.Entities.ArtistRank.ContainerArtistRank;
+import com.example.earplay.Core.Entities.ArtistSearch.ContainerArtistSearch;
+import com.example.earplay.Core.Entities.Genericos.ContainerTracksFav;
+import com.example.earplay.Core.Entities.MisPlaylist.ContainerMisPlaylist;
+import com.example.earplay.Core.Entities.PlaylistProfile.ContainerPlaylistProfile;
+import com.example.earplay.Core.Entities.PlaylistRank.ContainerPlaylistRank;
+import com.example.earplay.Core.Entities.TracksRank.ContainerTracksRank;
+import com.example.earplay.Core.Utils;
 
 public class Presenter_HomeActivity implements Contract_HomeActivity.Presenter {
 
@@ -48,10 +42,12 @@ public class Presenter_HomeActivity implements Contract_HomeActivity.Presenter {
 
     @Override
     public void pedirArtistasRankAlInteractor() {
-        if (internetAvalible()) {
+        if (Utils.internetAvalible(context)) {
             interactor.pedirListaDeArtistasRank();
         }else{
-            Toast.makeText(context, context.getString(R.string.PorFavor_Conectarse_A_Internet), Toast.LENGTH_SHORT).show();
+            if(view!= null){
+                view.mostrarMensajeSinInternet();
+            }
         }
     }
 
@@ -121,7 +117,7 @@ public class Presenter_HomeActivity implements Contract_HomeActivity.Presenter {
     }
 
     @Override
-    public void pedirTracksPlaylistProfile(int id) {
+    public void pedirTracksPlaylistProfile(long id) {
         interactor.pedirPlaylistProfileTracks(id);
     }
 
@@ -212,15 +208,17 @@ public class Presenter_HomeActivity implements Contract_HomeActivity.Presenter {
         interactor.guardarContainerFavTracks(containerTracksFav);
     }
 
-    private boolean internetAvalible(){
-        boolean connected;
-        ConnectivityManager connectivityManager = (ConnectivityManager)context.getSystemService(Context.CONNECTIVITY_SERVICE);
-        if(connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_MOBILE).getState() == NetworkInfo.State.CONNECTED ||
-                connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_WIFI).getState() == NetworkInfo.State.CONNECTED) {
-            connected = true;
-        }else{
-            connected = false;
+    @Override
+    public void recibirMensajeDeError(String s) {
+        if(view!= null){
+            view.mostrarMensajeDeError(s);
         }
-        return connected;
+    }
+
+    @Override
+    public void recibirMensajeDeActualizacion(String s) {
+        if(view!= null){
+            view.mostrarMensajeDeActualizacion(s);
+        }
     }
 }

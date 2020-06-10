@@ -11,9 +11,8 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-import com.example.earplay.HomeActivity.Entities.AlbumsArtist.Albums;
-import com.example.earplay.HomeActivity.Entities.Genericos.AlbumGenerico;
-import com.example.earplay.HomeActivity.Entities.TracksRank.Album;
+import com.example.earplay.Core.Entities.AlbumsArtist.Albums;
+import com.example.earplay.Core.Entities.Genericos.AlbumGenerico;
 import com.example.earplay.R;
 
 import java.util.ArrayList;

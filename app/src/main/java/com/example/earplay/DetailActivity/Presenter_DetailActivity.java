@@ -2,9 +2,7 @@ package com.example.earplay.DetailActivity;
 
 import android.content.Context;
 
-import com.example.earplay.HomeActivity.Contract_HomeActivity;
-import com.example.earplay.HomeActivity.Entities.Genericos.ContainerTracksFav;
-import com.example.earplay.HomeActivity.Interactor_HomeActivity;
+import com.example.earplay.Core.Entities.Genericos.ContainerTracksFav;
 
 public class Presenter_DetailActivity  implements Contract_DetailActivity.Presenter {
 

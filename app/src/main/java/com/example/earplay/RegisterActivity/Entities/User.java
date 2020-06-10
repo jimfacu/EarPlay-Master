@@ -1,7 +1,7 @@
 package com.example.earplay.RegisterActivity.Entities;
 
-import com.example.earplay.HomeActivity.Entities.Genericos.FavTracks;
-import com.example.earplay.HomeActivity.Entities.MisPlaylist.Playlist;
+import com.example.earplay.Core.Entities.Genericos.FavTracks;
+import com.example.earplay.Core.Entities.MisPlaylist.Playlist;
 
 import java.util.List;
 

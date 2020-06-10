@@ -21,9 +21,9 @@ import androidx.fragment.app.Fragment;
 
 import com.bumptech.glide.Glide;
 import com.example.earplay.HomeActivity.Contract_HomeActivity;
-import com.example.earplay.HomeActivity.Entities.Genericos.ContainerTracksFav;
-import com.example.earplay.HomeActivity.Entities.Genericos.FavTracks;
-import com.example.earplay.HomeActivity.Entities.Genericos.TrackGenerico;
+import com.example.earplay.Core.Entities.Genericos.ContainerTracksFav;
+import com.example.earplay.Core.Entities.Genericos.FavTracks;
+import com.example.earplay.Core.Entities.Genericos.TrackGenerico;
 import com.example.earplay.R;
 
 import java.io.IOException;
