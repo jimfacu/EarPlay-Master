@@ -53,7 +53,7 @@
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/xd"
+            android:src="@drawable/earplay"
             android:id="@+id/imageView_PhotoArtistProfile"
             android:layout_gravity="center"
             android:scaleType="fitXY"/>

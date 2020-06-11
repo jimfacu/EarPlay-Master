@@ -38,7 +38,7 @@ import java.util.List;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class Fragnent_AlbumProfile extends Fragment implements Adapter_Albums_AlbumProfile.CellListenerAlbumsProfile,Adapter_Album_AlbumProfile.ArtistProfileAdapter_Interface
+public class Fragment_AlbumProfile extends Fragment implements Adapter_Albums_AlbumProfile.CellListenerAlbumsProfile,Adapter_Album_AlbumProfile.ArtistProfileAdapter_Interface
                                                                 ,Adapter_MyPlaylistPopUp.PlaylistSelected{
 
     private static final String ListAlbumProfile ="listAlbumProfile";
@@ -69,16 +69,12 @@ public class Fragnent_AlbumProfile extends Fragment implements Adapter_Albums_Al
     private Adapter_Albums_AlbumProfile adapterAlbumsAlbumProfile;
 
     private Dialog myDialog;
-    private AppCompatButton btn_aceptAddTrackToPlaylist;
-    private AppCompatButton btn_cancelAddTrackToPlaylist;
-    private RecyclerView recyclerView_PopUpMyPlaylist;
-    private Adapter_MyPlaylistPopUp adapterMyPlaylistPopUp;
 
     private AlbumProfile_Interface albumProfileInterface;
 
-    public static Fragnent_AlbumProfile buildFragmentAlbumProfile(ContainerAlbumProfile containerAlbumProfile, ContainerAlbums containerAlbums,
-                                                                  AlbumGenerico album,ArtistGenerico artist, ContainerMisPlaylist containerMisPlaylist) {
-        Fragnent_AlbumProfile fragmentAlbumProfiler = new Fragnent_AlbumProfile();
+    public static Fragment_AlbumProfile buildFragmentAlbumProfile(ContainerAlbumProfile containerAlbumProfile, ContainerAlbums containerAlbums,
+                                                                  AlbumGenerico album, ArtistGenerico artist, ContainerMisPlaylist containerMisPlaylist) {
+        Fragment_AlbumProfile fragmentAlbumProfiler = new Fragment_AlbumProfile();
         if (containerAlbumProfile != null && containerAlbums != null && album!= null && artist!= null && containerMisPlaylist != null) {
             Bundle bundle = new Bundle();
             bundle.putParcelable(ListAlbumProfile,containerAlbumProfile);
@@ -92,7 +88,7 @@ public class Fragnent_AlbumProfile extends Fragment implements Adapter_Albums_Al
     }
 
 
-    public Fragnent_AlbumProfile() {
+    public Fragment_AlbumProfile() {
         // Required empty public constructor
     }
 
@@ -168,11 +164,11 @@ public class Fragnent_AlbumProfile extends Fragment implements Adapter_Albums_Al
 
         myDialog.setContentView(R.layout.custompopup_add_track_to_playlist);
 
-        recyclerView_PopUpMyPlaylist = myDialog.findViewById(R.id.recyclerView_chosePlaylist);
-        btn_aceptAddTrackToPlaylist = myDialog.findViewById(R.id.btn_AceptarAñadirTrack);
-        btn_cancelAddTrackToPlaylist = myDialog.findViewById(R.id.btn_CancelarAñadirTrack);
+        RecyclerView recyclerView_PopUpMyPlaylist = myDialog.findViewById(R.id.recyclerView_chosePlaylist);
+        AppCompatButton btn_aceptAddTrackToPlaylist = myDialog.findViewById(R.id.btn_AceptarAñadirTrack);
+        AppCompatButton btn_cancelAddTrackToPlaylist = myDialog.findViewById(R.id.btn_CancelarAñadirTrack);
 
-        adapterMyPlaylistPopUp = new Adapter_MyPlaylistPopUp(this);
+        Adapter_MyPlaylistPopUp adapterMyPlaylistPopUp = new Adapter_MyPlaylistPopUp(this);
         @SuppressLint("WrongConstant") LinearLayoutManager linearLayoutManager3 = new LinearLayoutManager(myDialog.getContext(),LinearLayoutManager.VERTICAL,false);
         recyclerView_PopUpMyPlaylist.setLayoutManager(linearLayoutManager3);
         recyclerView_PopUpMyPlaylist.setAdapter(adapterMyPlaylistPopUp);

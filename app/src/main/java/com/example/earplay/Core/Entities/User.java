@@ -1,4 +1,4 @@
-package com.example.earplay.RegisterActivity.Entities;
+package com.example.earplay.Core.Entities;
 
 import com.example.earplay.Core.Entities.Genericos.FavTracks;
 import com.example.earplay.Core.Entities.MisPlaylist.Playlist;

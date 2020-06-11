@@ -1,4 +1,4 @@
-package com.example.earplay.HomeActivity.Utils;
+package com.example.earplay.Core;
 
 public class Constants {
 

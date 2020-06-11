@@ -3,6 +3,7 @@ package com.example.earplay.DetailActivity;
 import android.content.Context;
 
 import com.example.earplay.Core.Entities.Genericos.ContainerTracksFav;
+import com.example.earplay.Core.Utils;
 
 public class Presenter_DetailActivity  implements Contract_DetailActivity.Presenter {
 
@@ -19,7 +20,13 @@ public class Presenter_DetailActivity  implements Contract_DetailActivity.Presen
 
     @Override
     public void pedirTracksFavAlInteractor() {
-        interactor.pedirTracksFav();
+        if(Utils.internetAvalible(context)){
+            interactor.pedirTracksFav();
+        }else{
+            if(view!= null){
+                view.mostrarMensajeSinInternet();
+            }
+        }
     }
 
     @Override
@@ -31,6 +38,13 @@ public class Presenter_DetailActivity  implements Contract_DetailActivity.Presen
 
     @Override
     public void guardarTracksFavNuevo(ContainerTracksFav containerTracksFav) {
-       interactor.guardarTracksFav(containerTracksFav);
+        interactor.guardarTracksFav(containerTracksFav);
+    }
+
+    @Override
+    public void recibirMensajeDelInteractor(String s) {
+        if(view!= null){
+            view.mostrarMensaje(s);
+        }
     }
 }

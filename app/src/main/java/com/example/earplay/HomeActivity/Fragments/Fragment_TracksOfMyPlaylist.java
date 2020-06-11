@@ -191,7 +191,7 @@ public class Fragment_TracksOfMyPlaylist extends Fragment implements Adapter_Tra
                         , favTracks.getLink(), favTracks.getArtistGenerico(), favTracks.getAlbumGenerico());
                 trackGenericoList.add(trackGenerico);
             }
-            adapterTracksMyPlaylist.insertTrackList(trackGenericoList);
+                adapterTracksMyPlaylist.insertTrackList(trackGenericoList);
         }
     }
 

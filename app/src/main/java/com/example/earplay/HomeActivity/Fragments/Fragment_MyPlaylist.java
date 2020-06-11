@@ -33,9 +33,6 @@ import com.example.earplay.R;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * A simple {@link Fragment} subclass.
- */
 public class Fragment_MyPlaylist extends Fragment implements Adapter_MyPlaylist.PlaylistToAlbum{
 
     private static final String listPlaylistString= "ListPlaylistString";
@@ -46,8 +43,6 @@ public class Fragment_MyPlaylist extends Fragment implements Adapter_MyPlaylist.
     private ImageView imageView_FavTracks;
     private Dialog myDialog;
     private EditText namePlaylist;
-    private AppCompatButton close;
-    private AppCompatButton crearPlaylist;
 
     private ContainerMisPlaylist containerMisPlaylist;
     private ContainerTracksFav containerTracksFav;
@@ -145,7 +140,7 @@ public class Fragment_MyPlaylist extends Fragment implements Adapter_MyPlaylist.
                 }
                 if(containerTracksFav.getFavTracks().size()>0) {
                     Playlist playlist = new Playlist(trackGenericoList, getContext().getString(R.string.FavTracks));
-                    addPlaylistInterface.mostrarTracksOfMyPlaylist(playlist,-1);
+                    addPlaylistInterface.mostrarTracksOfMyPlaylist(playlist,0);
                 }else{
                     Toast.makeText(getContext(), getContext().getString(R.string.Album_de_favoritos_sin_canciones), Toast.LENGTH_SHORT).show();
                 }
@@ -157,8 +152,8 @@ public class Fragment_MyPlaylist extends Fragment implements Adapter_MyPlaylist.
         @Override
         public void onClick(View view) {
             myDialog.setContentView(R.layout.custompopup_newplaylist);
-            close = myDialog.findViewById(R.id.btn_CancelarMyPlaylist);
-            crearPlaylist = myDialog.findViewById(R.id.btn_AceptarMyPlaylist);
+            AppCompatButton close = myDialog.findViewById(R.id.btn_CancelarMyPlaylist);
+            AppCompatButton crearPlaylist = myDialog.findViewById(R.id.btn_AceptarMyPlaylist);
             namePlaylist = myDialog.findViewById(R.id.editText_TituloMyPlaylist);
             close.setOnClickListener(new View.OnClickListener() {
                 @Override

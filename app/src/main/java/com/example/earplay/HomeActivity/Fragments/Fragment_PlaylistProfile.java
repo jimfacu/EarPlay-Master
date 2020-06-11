@@ -52,17 +52,11 @@ public class Fragment_PlaylistProfile extends Fragment implements Adapter_Tracks
     private int playlistActual=-1;
 
     private Dialog myDialog;
-    private AppCompatButton btn_aceptAddTrackToPlaylist;
-    private AppCompatButton btn_cancelAddTrackToPlaylist;
 
     private PlaylistProfile_Interface playlistProfileInterface;
 
     private RecyclerView recyclerView_PlaylistProfile;
-    private RecyclerView recyclerView_PopUpMyPlaylist;
     private Adapter_Tracks_PlaylistProfile adapterTracksPlaylistProfile;
-    private Adapter_MyPlaylistPopUp adapterMyPlaylistPopUp;
-
-
 
 
     public static Fragment_PlaylistProfile buildFragmentAlbumProfile(ContainerPlaylistProfile containerPlaylistProfile ,ContainerMisPlaylist containerMisPlaylist) {
@@ -85,7 +79,6 @@ public class Fragment_PlaylistProfile extends Fragment implements Adapter_Tracks
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_playlist_profile, container, false);
         initViews (view);
         imageView_backHome.setOnClickListener(backHomeListener);
@@ -141,11 +134,11 @@ public class Fragment_PlaylistProfile extends Fragment implements Adapter_Tracks
     public void goToMyPlaylists(TrackGenerico tracksDeMiPlaylist) {
         myDialog.setContentView(R.layout.custompopup_add_track_to_playlist);
 
-        recyclerView_PopUpMyPlaylist = myDialog.findViewById(R.id.recyclerView_chosePlaylist);
-        btn_aceptAddTrackToPlaylist = myDialog.findViewById(R.id.btn_AceptarAñadirTrack);
-        btn_cancelAddTrackToPlaylist = myDialog.findViewById(R.id.btn_CancelarAñadirTrack);
+        RecyclerView recyclerView_PopUpMyPlaylist = myDialog.findViewById(R.id.recyclerView_chosePlaylist);
+        AppCompatButton btn_aceptAddTrackToPlaylist = myDialog.findViewById(R.id.btn_AceptarAñadirTrack);
+        AppCompatButton btn_cancelAddTrackToPlaylist = myDialog.findViewById(R.id.btn_CancelarAñadirTrack);
 
-        adapterMyPlaylistPopUp = new Adapter_MyPlaylistPopUp(this);
+        Adapter_MyPlaylistPopUp adapterMyPlaylistPopUp = new Adapter_MyPlaylistPopUp(this);
         @SuppressLint("WrongConstant") LinearLayoutManager linearLayoutManager3 = new LinearLayoutManager(myDialog.getContext(),LinearLayoutManager.VERTICAL,false);
         recyclerView_PopUpMyPlaylist.setLayoutManager(linearLayoutManager3);
         recyclerView_PopUpMyPlaylist.setAdapter(adapterMyPlaylistPopUp);

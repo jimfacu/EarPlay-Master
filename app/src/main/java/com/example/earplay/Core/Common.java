@@ -1,4 +1,4 @@
-package com.example.earplay.HomeActivity.Utils;
+package com.example.earplay.Core;
 
 import com.example.earplay.Core.Entities.MisPlaylist.Playlist;
 

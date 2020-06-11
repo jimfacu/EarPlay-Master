@@ -26,7 +26,7 @@ import com.bumptech.glide.Glide;
 import com.example.earplay.Core.Entities.Genericos.ContainerTracksFav;
 import com.example.earplay.Core.Entities.Genericos.FavTracks;
 import com.example.earplay.Core.Entities.Genericos.TrackGenerico;
-import com.example.earplay.HomeActivity.Utils.Constants;
+import com.example.earplay.Core.Constants;
 import com.example.earplay.R;
 
 import java.io.IOException;
@@ -412,9 +412,17 @@ public class View_DetailActivity extends AppCompatActivity implements Contract_D
         checkFavTrack();
     }
 
+    @Override
+    public void mostrarMensajeSinInternet() {
+        Toast.makeText(context,getString(R.string.PorFavor_Conectarse_A_Internet), Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void mostrarMensaje(String s) {
+        Toast.makeText(context, s, Toast.LENGTH_SHORT).show();
+    }
+
     public void deleteTrackFavTrack() {
-        //containerTracksFav.getFavTracks().remove(new FavTracks(trackFavDelete.getId(),trackFavDelete.getTitle_short(),trackFavDelete.getPreview(),
-        //trackFavDelete.getLink(),trackFavDelete.getArtistGenerico(),trackFavDelete.getAlbumGenerico()));
         List<FavTracks> favTracksList= new ArrayList<>();
         List<FavTracks> tankfavTracksList = new ArrayList<>();
         for(FavTracks favTracks :containerFavTracks.getFavTracks()){
@@ -426,7 +434,6 @@ public class View_DetailActivity extends AppCompatActivity implements Contract_D
         containerFavTracks.setFavTracks(tankfavTracksList);
         presenter.guardarTracksFavNuevo(containerFavTracks);
         presenter.pedirTracksFavAlInteractor();
-        Toast.makeText(this, getString(R.string.Cancion_agregada_eliminada_a_favoritos_exitosamente), Toast.LENGTH_SHORT).show();
     }
 
     public void saveTrackToFavTrack() {
@@ -436,7 +443,6 @@ public class View_DetailActivity extends AppCompatActivity implements Contract_D
         containerFavTracks.getFavTracks().add(favTracks);
         presenter.guardarTracksFavNuevo(containerFavTracks);
         presenter.pedirTracksFavAlInteractor();
-        Toast.makeText(this, getString(R.string.Cancion_agregada_eliminada_a_favoritos_exitosamente), Toast.LENGTH_SHORT).show();
     }
 
     private void checkFavTrack (){

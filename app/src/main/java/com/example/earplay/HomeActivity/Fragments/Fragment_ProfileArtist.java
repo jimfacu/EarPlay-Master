@@ -30,7 +30,7 @@ import com.example.earplay.Core.Entities.MisPlaylist.ContainerMisPlaylist;
 import com.example.earplay.Core.Entities.TracksRank.Album;
 import com.example.earplay.Core.Entities.TracksRank.ContainerTracksRank;
 import com.example.earplay.Core.Entities.TracksRank.Track;
-import com.example.earplay.HomeActivity.Utils.Constants;
+import com.example.earplay.Core.Constants;
 import com.example.earplay.R;
 
 import java.util.ArrayList;
@@ -48,16 +48,12 @@ public class Fragment_ProfileArtist extends Fragment implements Adapter_Tracks_A
 
     private RecyclerView recyclerViewTracksArtistProfile;
     private RecyclerView recyclerViewAlbumsArtistProfile;
-    private RecyclerView recyclerView_PopUpMyPlaylist;
     private Adapter_Tracks_ArtistProfile adapterTracksArtistProfile;
     private Adapter_Albums_ArtistProfile adapterAlbumsArtistProfile;
-    private Adapter_MyPlaylistPopUp adapterMyPlaylistPopUp;
 
 
     private ArtistGenerico artist;
     private int playlistActual = -1;
-    private AppCompatButton btn_aceptAddTrackToPlaylist;
-    private AppCompatButton btn_cancelAddTrackToPlaylist;
 
     private Dialog myDialog;
 
@@ -154,11 +150,11 @@ public class Fragment_ProfileArtist extends Fragment implements Adapter_Tracks_A
     public void goToMyPlaylists(TrackGenerico tracksDeMiPlaylist) {
         myDialog.setContentView(R.layout.custompopup_add_track_to_playlist);
 
-        recyclerView_PopUpMyPlaylist = myDialog.findViewById(R.id.recyclerView_chosePlaylist);
-        btn_aceptAddTrackToPlaylist = myDialog.findViewById(R.id.btn_AceptarAñadirTrack);
-        btn_cancelAddTrackToPlaylist = myDialog.findViewById(R.id.btn_CancelarAñadirTrack);
+        RecyclerView recyclerView_PopUpMyPlaylist = myDialog.findViewById(R.id.recyclerView_chosePlaylist);
+        AppCompatButton btn_aceptAddTrackToPlaylist = myDialog.findViewById(R.id.btn_AceptarAñadirTrack);
+        AppCompatButton btn_cancelAddTrackToPlaylist = myDialog.findViewById(R.id.btn_CancelarAñadirTrack);
 
-        adapterMyPlaylistPopUp = new Adapter_MyPlaylistPopUp(this);
+        Adapter_MyPlaylistPopUp adapterMyPlaylistPopUp = new Adapter_MyPlaylistPopUp(this);
         @SuppressLint("WrongConstant") LinearLayoutManager linearLayoutManager3 = new LinearLayoutManager(myDialog.getContext(),LinearLayoutManager.VERTICAL,false);
         recyclerView_PopUpMyPlaylist.setLayoutManager(linearLayoutManager3);
         recyclerView_PopUpMyPlaylist.setAdapter(adapterMyPlaylistPopUp);

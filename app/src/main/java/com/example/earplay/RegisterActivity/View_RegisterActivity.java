@@ -3,6 +3,7 @@ package com.example.earplay.RegisterActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -20,7 +21,6 @@ public class View_RegisterActivity extends AppCompatActivity implements Contract
 
     private Contract_RegisterActivity.Presenter presenter;
 
-
     @BindView(R.id.input_NameUser)
     EditText nameUser;
 
@@ -31,7 +31,7 @@ public class View_RegisterActivity extends AppCompatActivity implements Contract
     EditText passwordUser;
 
     @BindView(R.id.btn_Register)
-    AppCompatButton btn_confirm;
+    Button btn_confirm;
 
     @BindView(R.id.link_signup)
     TextView textView_signUp;
@@ -44,18 +44,6 @@ public class View_RegisterActivity extends AppCompatActivity implements Contract
         presenter = new Presenter_RegisterActivity(this,this);
         btn_confirm.setOnClickListener(confirmListener);
         textView_signUp.setOnClickListener(signUpListener);
-    }
-
-    @Override
-    public void recibirElRegistroCompletado(boolean registrado) {
-        if(registrado){
-            Toast.makeText(this, getString(R.string.Usuario_Registrado), Toast.LENGTH_SHORT).show();
-            Intent i = new Intent(this, View_LoginActivity.class);
-            startActivity(i);
-            finish();
-        }else{
-            Toast.makeText(this, getString(R.string.Intentar_De_Nuevo), Toast.LENGTH_SHORT).show();
-        }
     }
 
     private void recibirDatos(){
@@ -92,4 +80,22 @@ public class View_RegisterActivity extends AppCompatActivity implements Contract
             finish();
         }
     };
+
+    @Override
+    public void recibirElRegistroCompletado(String s) {
+        Toast.makeText(this,s, Toast.LENGTH_SHORT).show();
+        Intent i = new Intent(this, View_LoginActivity.class);
+        startActivity(i);
+        finish();
+    }
+
+    @Override
+    public void MostrarMensajeDeErrorAlRegistrar(String s) {
+        Toast.makeText(this, s, Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void mostrarMensajeSinInternet() {
+        Toast.makeText(this, getString(R.string.PorFavor_Conectarse_A_Internet), Toast.LENGTH_SHORT).show();
+    }
 }

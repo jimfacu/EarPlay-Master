@@ -341,8 +341,6 @@ public class Fragment_Reproductor extends Fragment implements Contract_HomeActiv
 
     @Override
     public void borrarTrackFavTrack() {
-       // containerTracksFav.getFavTracks().remove(new FavTracks(trackList.get(position).getId(),trackList.get(position).getTitle_short(),trackList.get(position).getPreview(),
-         //       trackList.get(position).getLink(),trackList.get(position).getArtistGenerico(),trackList.get(position).getAlbumGenerico()));
         List<FavTracks> favTracksList= new ArrayList<>();
         List<FavTracks> tankfavTracksList = new ArrayList<>();
         for(FavTracks favTracks :containerTracksFav.getFavTracks()){

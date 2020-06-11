@@ -40,8 +40,8 @@ import com.example.earplay.HomeActivity.Fragments.Fragment_ProfileArtist;
 import com.example.earplay.HomeActivity.Fragments.Fragment_Reproductor;
 import com.example.earplay.HomeActivity.Fragments.Fragment_Search;
 import com.example.earplay.HomeActivity.Fragments.Fragment_TracksOfMyPlaylist;
-import com.example.earplay.HomeActivity.Fragments.Fragnent_AlbumProfile;
-import com.example.earplay.HomeActivity.Utils.Constants;
+import com.example.earplay.HomeActivity.Fragments.Fragment_AlbumProfile;
+import com.example.earplay.Core.Constants;
 import com.example.earplay.LoginActivity.View_LoginActivity;
 import com.example.earplay.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -52,20 +52,17 @@ import java.util.HashMap;
 import java.util.List;
 
 
-public class View_HomeActivity extends AppCompatActivity implements Contract_HomeActivity.View , Fragment_Home.ArtistProfile,Fragnent_AlbumProfile.AlbumProfile_Interface,Fragment_Search.Abuscar
+public class View_HomeActivity extends AppCompatActivity implements Contract_HomeActivity.View , Fragment_Home.ArtistProfile, Fragment_AlbumProfile.AlbumProfile_Interface,Fragment_Search.Abuscar
                                                             ,Fragment_MyPlaylist.AddPlaylist,Fragment_ProfileArtist.ProfileArtist_Interface,Fragment_PlaylistProfile.PlaylistProfile_Interface
                                                             ,Fragment_TracksOfMyPlaylist.TracksMyPlaylist_Interface,Fragment_Reproductor.ReproductorInterface {
 
     private FragmentManager fragmentManager;
     private FragmentTransaction fragmentTransaction;
-    private Fragment_Home fragmentHome = new Fragment_Home();
-    private Fragment_ProfileArtist fragment_profileArtist = new Fragment_ProfileArtist();
-    private Fragnent_AlbumProfile fragnentAlbumProfile = new Fragnent_AlbumProfile();
-    private Fragment_PlaylistProfile fragment_playlistProfile = new Fragment_PlaylistProfile();
     private Fragment_Reproductor fragment_reproductor = new Fragment_Reproductor();
-    private Fragment_Search fragment_search = new Fragment_Search();
+    private Fragment_Home fragment_home = new Fragment_Home();
     private Fragment_MyPlaylist fragment_myPlaylist = new Fragment_MyPlaylist();
     private Fragment_TracksOfMyPlaylist fragment_tracksOfMyPlaylist = new Fragment_TracksOfMyPlaylist();
+
 
 
     private ArtistGenerico artistActual;
@@ -130,8 +127,8 @@ public class View_HomeActivity extends AppCompatActivity implements Contract_Hom
     public void mostrarListaDeArtistasRank(ContainerArtistRank containerArtistRank) {
         containerArtistRankV = containerArtistRank;
         if (containerTracksRankV!= null && containerPlaylistRankV != null) {
-            fragmentHome = Fragment_Home.buildFragmentHome(containerTracksRankV, containerPlaylistRankV, containerArtistRankV);
-            setFragment(fragmentHome);
+            fragment_home = Fragment_Home.buildFragmentHome(containerTracksRankV, containerPlaylistRankV, containerArtistRankV);
+            setFragment(fragment_home);
         }
     }
 
@@ -139,8 +136,8 @@ public class View_HomeActivity extends AppCompatActivity implements Contract_Hom
     public void mostrarListaDeTracksRank(ContainerTracksRank containerTracksRank) {
         containerTracksRankV = containerTracksRank;
         if (containerArtistRankV != null && containerPlaylistRankV != null) {
-            fragmentHome = Fragment_Home.buildFragmentHome(containerTracksRankV, containerPlaylistRankV, containerArtistRankV);
-            setFragment(fragmentHome);
+            fragment_home = Fragment_Home.buildFragmentHome(containerTracksRankV, containerPlaylistRankV, containerArtistRankV);
+            setFragment(fragment_home);
         }
     }
 
@@ -148,8 +145,8 @@ public class View_HomeActivity extends AppCompatActivity implements Contract_Hom
     public void mostrarPlayListRank(ContainerPlaylistRank containerPlaylistRank) {
         containerPlaylistRankV = containerPlaylistRank;
         if (containerArtistRankV != null && containerTracksRankV != null) {
-            fragmentHome = Fragment_Home.buildFragmentHome(containerTracksRankV, containerPlaylistRankV, containerArtistRankV);
-            setFragment(fragmentHome);
+            fragment_home = Fragment_Home.buildFragmentHome(containerTracksRankV, containerPlaylistRankV, containerArtistRankV);
+            setFragment(fragment_home);
         }
     }
 
@@ -158,6 +155,7 @@ public class View_HomeActivity extends AppCompatActivity implements Contract_Hom
         if (containerAlbums != null) {
             containerAlbumsArtistProfile = containerAlbums;
             if (containerTracksArtistProfile != null) {
+                Fragment_ProfileArtist fragment_profileArtist = new Fragment_ProfileArtist();
                 fragment_profileArtist = Fragment_ProfileArtist.buildFragmentArtistProfile(containerTracksArtistProfile, containerAlbumsArtistProfile, containerMisPlaylistGlobal, artistActual);
                 setFragment(fragment_profileArtist);
             }
@@ -169,6 +167,7 @@ public class View_HomeActivity extends AppCompatActivity implements Contract_Hom
         if (containerTracks != null) {
             containerTracksArtistProfile = containerTracks;
             if (containerAlbumsArtistProfile != null) {
+                Fragment_ProfileArtist fragment_profileArtist = new Fragment_ProfileArtist();
                 fragment_profileArtist = Fragment_ProfileArtist.buildFragmentArtistProfile(containerTracksArtistProfile, containerAlbumsArtistProfile, containerMisPlaylistGlobal, artistActual);
                 setFragment(fragment_profileArtist);
             }
@@ -180,13 +179,17 @@ public class View_HomeActivity extends AppCompatActivity implements Contract_Hom
         if (containerAlbumProfile != null) {
             containerTracksAlbumProfile = containerAlbumProfile;
             if (containerOtrosAlbumsAlbumProfile != null) {
-                fragnentAlbumProfile = Fragnent_AlbumProfile.buildFragmentAlbumProfile(containerTracksAlbumProfile, containerOtrosAlbumsAlbumProfile, albumActual, artistActual, containerMisPlaylistGlobal);
-                setFragment(fragnentAlbumProfile);
+                Fragment_AlbumProfile fragmentAlbumProfile;
+                fragmentAlbumProfile = Fragment_AlbumProfile.buildFragmentAlbumProfile(containerTracksAlbumProfile,
+                        containerOtrosAlbumsAlbumProfile, albumActual, artistActual, containerMisPlaylistGlobal);
+                setFragment(fragmentAlbumProfile);
             } else {
                 if (mostrarAlbumFragmentAFragment) {
                     mostrarAlbumFragmentAFragment = false;
-                    fragnentAlbumProfile = Fragnent_AlbumProfile.buildFragmentAlbumProfile(containerTracksAlbumProfile, tankContainerOtrosAlbumsAlbumProfile, albumActual, artistActual, containerMisPlaylistGlobal);
-                    setFragment(fragnentAlbumProfile);
+                    Fragment_AlbumProfile fragmentAlbumProfile ;
+                    fragmentAlbumProfile = Fragment_AlbumProfile.buildFragmentAlbumProfile(containerTracksAlbumProfile,
+                            tankContainerOtrosAlbumsAlbumProfile, albumActual, artistActual, containerMisPlaylistGlobal);
+                    setFragment(fragmentAlbumProfile);
                 }
             }
         }
@@ -198,8 +201,9 @@ public class View_HomeActivity extends AppCompatActivity implements Contract_Hom
             containerOtrosAlbumsAlbumProfile = containerAlbums;
             tankContainerOtrosAlbumsAlbumProfile = containerAlbums;
             if (containerTracksAlbumProfile != null) {
-                fragnentAlbumProfile = Fragnent_AlbumProfile.buildFragmentAlbumProfile(containerTracksAlbumProfile, containerOtrosAlbumsAlbumProfile, albumActual, artistActual, containerMisPlaylistGlobal);
-                setFragment(fragnentAlbumProfile);
+                Fragment_AlbumProfile fragmentAlbumProfile;
+                fragmentAlbumProfile = Fragment_AlbumProfile.buildFragmentAlbumProfile(containerTracksAlbumProfile, containerOtrosAlbumsAlbumProfile, albumActual, artistActual, containerMisPlaylistGlobal);
+                setFragment(fragmentAlbumProfile);
             }
         }
     }
@@ -207,6 +211,7 @@ public class View_HomeActivity extends AppCompatActivity implements Contract_Hom
     @Override
     public void mostrarPlaylisProfileTracks(ContainerPlaylistProfile containerPlaylistProfile) {
         if (containerPlaylistProfile != null) {
+            Fragment_PlaylistProfile fragment_playlistProfile;
             fragment_playlistProfile = Fragment_PlaylistProfile.buildFragmentAlbumProfile(containerPlaylistProfile, containerMisPlaylistGlobal);
             setFragment(fragment_playlistProfile);
         }
@@ -215,6 +220,7 @@ public class View_HomeActivity extends AppCompatActivity implements Contract_Hom
     @Override
     public void mostrarBusquedaTracks(ContainerTracksRank containerTracksRank) {
         if (containerTracksRank != null) {
+            Fragment_Search fragment_search;
             fragment_search = Fragment_Search.buildFragmentTracks(containerTracksRank);
             setFragment(fragment_search);
         }
@@ -223,6 +229,7 @@ public class View_HomeActivity extends AppCompatActivity implements Contract_Hom
     @Override
     public void mostrarBusquedaAlbums(ContainerAlbumSearch containerAlbumSearch) {
         if (containerAlbumSearch != null) {
+            Fragment_Search fragment_search;
             fragment_search = Fragment_Search.buildFragmentAlbum(containerAlbumSearch);
             setFragment(fragment_search);
         }
@@ -231,6 +238,7 @@ public class View_HomeActivity extends AppCompatActivity implements Contract_Hom
     @Override
     public void mostrarBusquedaArtistas(ContainerArtistSearch containerArtistSearch) {
         if (containerArtistSearch != null) {
+            Fragment_Search fragment_search;
             fragment_search = Fragment_Search.buildFragmentArtist(containerArtistSearch);
             setFragment(fragment_search);
         }
@@ -238,6 +246,7 @@ public class View_HomeActivity extends AppCompatActivity implements Contract_Hom
 
     @Override
     public void mostrarRsptaMyPlaylist(boolean guardado) {
+        //muestro mensaje solo de error , por que de exito esta en el fragment
         if(!guardado) {
             Toast.makeText(this, getString(R.string.Error_al_guardar_playlist), Toast.LENGTH_SHORT).show();
         }
@@ -259,6 +268,7 @@ public class View_HomeActivity extends AppCompatActivity implements Contract_Hom
     public void mostrarMisTracksFav(ContainerTracksFav containerFavTracks) {
         if (containerFavTracks != null) {
             containerTracksFav = containerFavTracks;
+            Fragment_Reproductor fragment_reproductor = new Fragment_Reproductor();
             fragment_reproductor.cargarListaFavTrackReproductor(containerFavTracks);
             hp = new HashMap<>();
             for (FavTracks track : containerFavTracks.getFavTracks()) {
@@ -275,11 +285,25 @@ public class View_HomeActivity extends AppCompatActivity implements Contract_Hom
     }
 
     @Override
+    public void mostrarMensajeDeError(String s) {
+        Toast.makeText(this, s, Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void mostrarMensajeDeActualizacion(String s) {
+        Toast.makeText(this, s, Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void mostrarMensajeSinInternet() {
+        Toast.makeText(this, getString(R.string.PorFavor_Conectarse_A_Internet), Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
     public void mostrarTracksOfMyPlaylist(Playlist playlist,int position) {
         fragment_tracksOfMyPlaylist = Fragment_TracksOfMyPlaylist.buildFragmentArtistProfile(playlist,containerMisPlaylistGlobal,containerTracksFav,position);
         setFragment(fragment_tracksOfMyPlaylist);
     }
-
     @Override
     public void signOut() {
         FirebaseAuth.getInstance().signOut();
@@ -301,17 +325,14 @@ public class View_HomeActivity extends AppCompatActivity implements Contract_Hom
         public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
             switch (menuItem.getItemId()) {
                 case R.id.homeIcon:
-                   // menuItem.setIcon(R.drawable.ic_home_white_35dp);  PREGUNTAR POR ICONOS
-                    setFragment(fragmentHome);
+                    setFragment(fragment_home);
                     break;
 
                 case R.id.searchIcon:
-                   // bottomNavigationView.setItemBackgroundResource(R.drawable.ic_search_white_24dp);
                     setFragment(new Fragment_Search());
                     break;
 
                 case R.id.playlistIcon:
-                   // bottomNavigationView.setItemBackgroundResource(R.drawable.ic_playlist_play_white_24dp);
                     setFragment(fragment_myPlaylist);
                     break;
                 case R.id.favoriteIcon:
@@ -373,7 +394,7 @@ public class View_HomeActivity extends AppCompatActivity implements Contract_Hom
 
     @Override
     public void backToHome() {
-        setFragment(fragmentHome);
+        setFragment(fragment_home);
         presenter.pedirListaDeFavTracks();
         presenter.pedirListaDeMisPlaylist();
     }
@@ -459,7 +480,7 @@ public class View_HomeActivity extends AppCompatActivity implements Contract_Hom
             menu.findItem(R.id.favoriteIcon).setIcon(R.drawable.ic_favorite_black_24dp);
         } else {
             Menu menu = bottomNavigationView.getMenu();
-         menu.findItem(R.id.favoriteIcon).setIcon(R.drawable.ic_favorite_border_black_24dp);
+            menu.findItem(R.id.favoriteIcon).setIcon(R.drawable.ic_favorite_border_black_24dp);
         }
     }
 
@@ -541,22 +562,4 @@ public class View_HomeActivity extends AppCompatActivity implements Contract_Hom
             }
         }
     }
-
-    @Override
-    public void mostrarMensajeDeError(String s) {
-        Toast.makeText(this, s, Toast.LENGTH_SHORT).show();
-    }
-
-    @Override
-    public void mostrarMensajeDeActualizacion(String s) {
-        Toast.makeText(this, s, Toast.LENGTH_SHORT).show();
-    }
-
-    @Override
-    public void mostrarMensajeSinInternet() {
-        Toast.makeText(this, getString(R.string.PorFavor_Conectarse_A_Internet), Toast.LENGTH_SHORT).show();
-    }
-
-
-
 }

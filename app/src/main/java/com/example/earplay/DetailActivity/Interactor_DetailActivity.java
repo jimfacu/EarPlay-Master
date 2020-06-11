@@ -7,6 +7,7 @@ import androidx.annotation.NonNull;
 
 import com.example.earplay.Core.Entities.Genericos.ContainerTracksFav;
 import com.example.earplay.Core.Entities.Genericos.FavTracks;
+import com.example.earplay.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
@@ -20,6 +21,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Interactor_DetailActivity implements Contract_DetailActivity.Interactor {
+
+    private static final String Users = "Users";
+    private static final String CancionesFavoritas = "favoriteTracks";
 
     private Contract_DetailActivity.Presenter presenter;
     private Context context;
@@ -35,9 +39,9 @@ public class Interactor_DetailActivity implements Contract_DetailActivity.Intera
         List<FavTracks> favTrackstList = new ArrayList<>();
         ContainerTracksFav containerTracksFav = new ContainerTracksFav();
         FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference reference = database.getReference("Users")
+        DatabaseReference reference = database.getReference(Users)
                 .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
-                .child("favoriteTracks");
+                .child(CancionesFavoritas);
         reference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -52,7 +56,7 @@ public class Interactor_DetailActivity implements Contract_DetailActivity.Intera
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-
+                presenter.recibirMensajeDelInteractor(context.getString(R.string.Error_Firebase_CancionesFavoritas));
             }
         });
     }
@@ -60,18 +64,17 @@ public class Interactor_DetailActivity implements Contract_DetailActivity.Intera
     @Override
     public void guardarTracksFav(ContainerTracksFav containerTracksFav) {
         FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference reference = database.getReference("Users")
+        DatabaseReference reference = database.getReference(Users)
                 .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
-                .child("favoriteTracks");
+                .child(CancionesFavoritas);
         reference.setValue(containerTracksFav.getFavTracks())
                 .addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         if(task.isSuccessful()){
-                           // presenter.(true);
+                            presenter.recibirMensajeDelInteractor(context.getString(R.string.Cancion_agregada_eliminada_a_favoritos_exitosamente));
                         }else{
-                           // presenter.recibirRsptaGuardadoPlaylist(false);
-                            Toast.makeText(context, "Fallo al agregar cancion a favoritos", Toast.LENGTH_SHORT).show();
+                           presenter.recibirMensajeDelInteractor(context.getString(R.string.Error_Firebase_GuardarCancionesFavoritas));
                         }
                     }
                 });

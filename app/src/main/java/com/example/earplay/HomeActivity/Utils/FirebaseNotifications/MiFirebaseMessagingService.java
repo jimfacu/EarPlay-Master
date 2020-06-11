@@ -15,7 +15,7 @@ import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 
-import com.example.earplay.HomeActivity.Utils.Constants;
+import com.example.earplay.Core.Constants;
 import com.example.earplay.HomeActivity.View_HomeActivity;
 import com.example.earplay.R;
 import com.google.firebase.messaging.FirebaseMessagingService;

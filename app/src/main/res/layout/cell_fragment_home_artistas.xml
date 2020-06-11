@@ -13,7 +13,7 @@
         android:id="@+id/circleImageView_ArtistRank"
         android:layout_width="@dimen/width130"
         android:layout_height="130dp"
-        android:src="@drawable/xd"
+        android:src="@drawable/earplay"
         app:civ_border_color="#FFFFFF"
         app:civ_border_width="5dp"
         app:layout_constraintBottom_toTopOf="@+id/textView_ArtistName"

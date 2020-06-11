@@ -29,7 +29,7 @@
                 android:layout_width="@dimen/height200"
                 android:layout_height="@dimen/height200"
                 android:id="@+id/imageView_PlaylistProfile"
-                android:src="@drawable/xd"
+                android:src="@drawable/earplay"
                 android:layout_gravity="center"
                 android:scaleType="fitXY"
                 android:layout_marginTop="@dimen/margin15"

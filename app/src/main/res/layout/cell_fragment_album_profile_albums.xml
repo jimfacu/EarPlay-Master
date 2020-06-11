@@ -9,7 +9,7 @@
         android:layout_width="@dimen/width100"
         android:layout_height="@dimen/height100"
         android:id="@+id/imageView_AlbumsProfileAlbum"
-        android:src="@drawable/xd"
+        android:src="@drawable/earplay"
         android:layout_margin="@dimen/margin15"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"

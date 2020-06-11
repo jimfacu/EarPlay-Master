@@ -5,6 +5,7 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.widget.Toast;
 
+import com.example.earplay.Core.Utils;
 import com.example.earplay.R;
 
 public class Presenter_LoginActivity implements Contract_LoginActivity.Presenter {
@@ -21,29 +22,26 @@ public class Presenter_LoginActivity implements Contract_LoginActivity.Presenter
 
     @Override
     public void recibirDatosDeInicioDeSesion(String email, String password) {
-        if (internetAvalible()) {
+        if (Utils.internetAvalible(context)) {
             interactor.verificacionDeDatos(email, password);
         }else{
-            Toast.makeText(context, context.getString(R.string.PorFavor_Conectarse_A_Internet), Toast.LENGTH_SHORT).show();
+            if(view!= null){
+                view.mostrarMensajeSinInternet();
+            }
         }
     }
 
     @Override
-    public void recibirVerificacionDeDatos(boolean loguearse) {
-        if(view!=null){
-            view.iniciarSesion(loguearse);
+    public void exitoDeInicioDeSesion() {
+        if(view!= null){
+            view.iniciarSesion();
         }
     }
 
-    private boolean internetAvalible(){
-        boolean connected;
-        ConnectivityManager connectivityManager = (ConnectivityManager)context.getSystemService(Context.CONNECTIVITY_SERVICE);
-        if(connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_MOBILE).getState() == NetworkInfo.State.CONNECTED ||
-                connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_WIFI).getState() == NetworkInfo.State.CONNECTED) {
-            connected = true;
-        }else{
-            connected = false;
+    @Override
+    public void falloAlIniciarSesion(String s) {
+        if(view!= null){
+            view.falloAlInciarSesion(s);
         }
-        return connected;
     }
 }

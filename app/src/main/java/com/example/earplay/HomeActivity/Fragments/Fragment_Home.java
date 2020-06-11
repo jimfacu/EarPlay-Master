@@ -23,7 +23,7 @@ import com.example.earplay.Core.Entities.PlaylistRank.ContainerPlaylistRank;
 import com.example.earplay.Core.Entities.TracksRank.Album;
 import com.example.earplay.Core.Entities.TracksRank.ContainerTracksRank;
 import com.example.earplay.Core.Entities.TracksRank.Track;
-import com.example.earplay.HomeActivity.Utils.Constants;
+import com.example.earplay.Core.Constants;
 import com.example.earplay.R;
 
 import java.util.ArrayList;

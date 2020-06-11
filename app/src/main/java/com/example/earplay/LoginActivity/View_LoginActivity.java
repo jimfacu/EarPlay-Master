@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -35,6 +36,9 @@ public class View_LoginActivity extends AppCompatActivity implements Contract_Lo
 
     @BindView(R.id.link_register)
     TextView textView_Register;
+
+    @BindView(R.id.progressBarLoading)
+    ProgressBar progressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,6 +71,7 @@ public class View_LoginActivity extends AppCompatActivity implements Contract_Lo
         }
 
         if(mandarInfo){
+            progressBar.setVisibility(View.VISIBLE);
             presenter.recibirDatosDeInicioDeSesion(emailUser.getText().toString().trim(),passwordUser.getText().toString().trim());
         }
     }
@@ -74,26 +79,10 @@ public class View_LoginActivity extends AppCompatActivity implements Contract_Lo
     private View.OnClickListener loginListener = new View.OnClickListener() {
         @Override
         public void onClick(View view) {
-            progressDialog.setMessage("Logueandose...");
-            progressDialog.dismiss();
             verificarDatos();
         }
     };
 
-
-
-    @Override
-    public void iniciarSesion(boolean loguearse) {
-        if(loguearse){
-            progressDialog.dismiss();
-            Intent i = new Intent(this, View_HomeActivity.class);
-            startActivity(i);
-            finish();
-        }else{
-            progressDialog.dismiss();
-            Toast.makeText(this, getString(R.string.Credenciales_Erroneas), Toast.LENGTH_SHORT).show();
-        }
-    }
 
     private View.OnClickListener registerListener = new View.OnClickListener() {
         @Override
@@ -103,4 +92,23 @@ public class View_LoginActivity extends AppCompatActivity implements Contract_Lo
             finish();
         }
     };
+
+    @Override
+    public void iniciarSesion() {
+        progressBar.setVisibility(View.GONE);
+        Intent i = new Intent(getApplicationContext(),View_HomeActivity.class);
+        startActivity(i);
+    }
+
+    @Override
+    public void falloAlInciarSesion(String s) {
+        progressBar.setVisibility(View.GONE);
+        Toast.makeText(this, s, Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void mostrarMensajeSinInternet() {
+        progressBar.setVisibility(View.GONE);
+        Toast.makeText(this, getString(R.string.PorFavor_Conectarse_A_Internet), Toast.LENGTH_SHORT).show();
+    }
 }
