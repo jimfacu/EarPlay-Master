@@ -34,8 +34,8 @@ EXTRA COMPLEMENTS
  
 # MATERIAL ELEMENTS
 
-    RecyclerView
-    BottomNavigationView
-    CircleImageView
-    Spinner
+    * RecyclerView
+    * BottomNavigationView
+    * CircleImageView
+    * Spinner
     
