@@ -14,7 +14,7 @@ posibilidad de poder mandar notificaciones a la app.
 ## Librerías
 
 WEB SERVICES
-    ```
+    ```bash
    FirebaseDatabase  -'com.google.firebase:firebase-database:16.0.4'
    FirebaseAuth      -'com.google.firebase:firebase-auth:16.0.5'
    FirebaseMessaging -'com.google.firebase:firebase-messaging:17.3.4'
@@ -22,13 +22,13 @@ WEB SERVICES
    ```
    
 MATERIAL DESIGN
-    ```
+   ```bash
    RecyclerView -'com.android.support:recyclerview-v7:29.1.1'
    Material     -'com.google.android.material:material:1.0.0'
    ```
    
 EXTRA COMPLEMENTS
-    ```
+    ```bash
     Glide           -'com.github.bumptech.glide:glide:4.7.1'
     ButterKnife     -'com.jakewharton:butterknife:10.0.0'
     CircleImageView -'de.hdodenhof:circleimageview:3.1.0'
