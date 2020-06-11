@@ -14,24 +14,26 @@ posibilidad de poder mandar notificaciones a la app.
 ## Librerías
 
 WEB SERVICES
-    
+    ```
    FirebaseDatabase  -'com.google.firebase:firebase-database:16.0.4'
    FirebaseAuth      -'com.google.firebase:firebase-auth:16.0.5'
    FirebaseMessaging -'com.google.firebase:firebase-messaging:17.3.4'
    Retrofit          -'com.squareup.retrofit2:retrofit:2.5.0'
+   ```
    
 MATERIAL DESIGN
-
+    ```
    RecyclerView -'com.android.support:recyclerview-v7:29.1.1'
    Material     -'com.google.android.material:material:1.0.0'
+   ```
    
 EXTRA COMPLEMENTS
-
+    ```
     Glide           -'com.github.bumptech.glide:glide:4.7.1'
     ButterKnife     -'com.jakewharton:butterknife:10.0.0'
     CircleImageView -'de.hdodenhof:circleimageview:3.1.0'
-    
-#MATERIAL ELEMENTS
+    ```
+# MATERIAL ELEMENTS
 
     RecyclerView
     BottomNavigationView
