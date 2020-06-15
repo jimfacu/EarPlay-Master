@@ -19,7 +19,7 @@ WEB SERVICES
   * **FirebaseAuth**      'com.google.firebase:firebase-auth:16.0.5'
   * **FirebaseMessaging** 'com.google.firebase:firebase-messaging:17.3.4'
   * **Retrofit**          'com.squareup.retrofit2:retrofit:2.5.0'
-  * **API **REST **DEEZER 
+  * **API** **REST** **DEEZER** 
    
 MATERIAL DESIGN
 
