@@ -1,6 +1,6 @@
 # EarPlay
 
-EarPlay es un ejercicio mobile simple en Android para poder escuchar musica de una API REST.
+EarPlay es un ejercicio mobile simple en Android para poder escuchar musica.
 
 ## Descripción
 
